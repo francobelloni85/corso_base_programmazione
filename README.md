@@ -84,9 +84,11 @@ esempi BREVI di codice python / parole chiave del linguaggio:
 
 **(10_stampa_while.py)**  Stampa i primi 10 numeri con il cliclo while.
 
-**(11_stampa_while_pari.py)**  Stampa i primi 10 numeri con il cliclo while. Se sono pari stampa anche un punto escamativo vicino al numero. 1 - 2! - 3 - 4!
+**(11_numero_magico.py)**  Chiedi all'utente di indovinare un numero magico.Il numero magico è il numero 7. L'utente ha 10 tentativi.Se indovina stampa "Complimenti, hai indovinato!" Se non indovina stampa "Game over!"
 
-**(12_stampa_while_pattern.py)**  Stampa il seguente pattern:
+**(12_stampa_while_pari.py)**  Stampa i primi 10 numeri con il cliclo while. Se sono pari stampa anche un punto escamativo vicino al numero. 1 - 2! - 3 - 4!
+
+**(13_stampa_while_pattern.py)**  Stampa il seguente pattern:
 
 1
 
@@ -98,6 +100,6 @@ esempi BREVI di codice python / parole chiave del linguaggio:
 
 1 2 3 4 5
 
-**(13_somma_while.py)**  Chiedi un numero all'utente e somma i numeri da 1 fino al numero immesso.
+**(14_somma_while.py)**  Chiedi un numero all'utente e somma i numeri da 1 fino al numero immesso.
 
-**(14_numeri_primi_while.py)**  Chiedi un numero all'utente e trova tutti i numeri primi fino al numero immesso
+**(15_numeri_primi_while.py)**  Chiedi un numero all'utente e trova tutti i numeri primi fino al numero immesso
