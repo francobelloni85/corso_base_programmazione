@@ -74,12 +74,14 @@ esempi BREVI di codice python / parole chiave del linguaggio:
 
 **(5_numero_pari.py)**  Chiedi all'utente un numero pari. Se il numero inserito è pari somma il numero inserito al numero 3 e restituisci il risultato. Se è dispari stampa la frase "hai inserito un numero dispari birbante!"
 
+**(6_to_do.py)**  ....
+
 **(7_somma_numeri.py)**  Chiedi all'utente di inserire 3 numeri. Se la somma è maggiore di 10 allora restituisci il numero più grande. Se invece non è maggiore di 10 restituisci la somma dei 3 numeri.
 
 **(8_calcolatrice.py)**  Chiedi all'utente 2 numeri. Poi chiedi un numero per l'operazione da effettuare tra somma (1), sottrazione (2), divisione (3), moltiplicazione (4). Stampa il risultato. Presta attenzione per la divisione per zero e stampa il messaggio di errore "Non puoi dividere per zero!".
 Se l'utente sceglie un operazione non contemplata effettua la somma.
 
-**(9_tasse.py)**  Calcola le tasse da pagare e stampa il risultato. Se hai guadagnato meno di 10.000€ all'anno paghi 0€ di irpef. Se hai guadagnato tra 10.000 e 30.000€ all'anno paghi il 22% di tasse. Se hai guadagnato più di 30.000 euro paghi il 22% da 10.000 fino a 30.000 euro più il 33% della somma eccedente.
+**(9_tasse.py)**  Calcola le tasse da pagare e stampa il risultato. Se hai guadagnato meno di 10.000€ all'anno paghi 0€ di irpef. Se hai guadagnato tra 10.000 e 30.000€ all'anno paghi il 22% di tasse. Se hai guadagnato più di 30.000 euro paghi il 22% da 10.000 fino a 30.000 euro più il 33% della somma eccedente. Ad esempio se guadagno 36.000 euro allora pagherò 0€ per la parte da 0 a 10.000€, poi pagherò il 22% per la parte da 10.000€ a 30.000€ e paghero il 33% sulla parte eccedente i 30.000€ (ovvero 6000€).
 
 ------------
 
@@ -109,7 +111,11 @@ Se l'utente sceglie un operazione non contemplata effettua la somma.
 
 **(16_max_min_while.py)**  Stampa alla fine del programma il numero massimo e il numero minimo di tutti i numeri che l'utente ha inserito. Si esce dal ciclo quando l'utente inserisce il numero 0.
 
-**(17_while_calcolatrice.py)**  Chiedi all'utente quante operazioni vuole fare con la calcolatrice. Poi chiedi 2 numeri. Infine chiedi un numero per l'operazione da effettuare tra somma (1), sottrazione (2), divisione (3), moltiplicazione (4). Alla fine delle operazioni stampa il risultato. Presta attenzione per la divisione per zero e stampa il messaggio di errore "Non puoi dividere per zero!" ed esci dal programma nel caso. Se l'utente sceglie un operazione non contemplata effettua la somma.
+**(17_while_calcolatrice.py)**  Chiedi all'utente quante operazioni vuole fare con la calcolatrice. Successivamente chiederi 2 numeri e l'operazione da effettuare. l'operazione da effettuare è tra somma (1), sottrazione (2), divisione (3), moltiplicazione (4). Se l'utente vuole effettuare più di una operazione allora al risulto ottenuto applica l'operazione scelta di volta in volta immessa dall'utente.
+Alla fine delle operazioni stampa il risultato. Presta attenzione per la divisione per zero e stampa il messaggio di errore "Non puoi dividere per zero!" ed esci dal programma nel caso. Se l'utente sceglie un operazione non contemplata effettua la somma.
+Esempio di esecuzione:
+
+"scegli quante operazioni fare: " 3, "Inserisci il primo numero: " 5, "Inserisci il secondo numero: " 3, abbiamo che risulto = 8. Ora viene chiesto all'utente una delle altre 2 operazioni rimanenti. "Inserisci un numero", 8. Poi viene chiesto "Inserisci l'operazione: ", in questo caso sottrazione. Il risultato ora è 0. Poi si prosegue con il resto delle operazioni rimaste.
 
 **(18_numeri_primi_while.py)**  Chiedi un numero all'utente e trova tutti i numeri primi fino al numero immesso
 
