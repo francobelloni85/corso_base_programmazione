@@ -74,7 +74,7 @@ esempi BREVI di codice python / parole chiave del linguaggio:
 
 **(5_numero_pari.py)**  Chiedi all'utente un numero pari. Se il numero inserito è pari somma il numero inserito al numero 3 e restituisci il risultato. Se è dispari stampa la frase "hai inserito un numero dispari birbante!"
 
-**(6_to_do.py)**  ....
+**(6_ordine_crescente.py)**  Visualizza in ordine crescente 3 numeri inseriti dall'utente.
 
 **(7_somma_numeri.py)**  Chiedi all'utente di inserire 3 numeri. Se la somma è maggiore di 10 allora restituisci il numero più grande. Se invece non è maggiore di 10 restituisci la somma dei 3 numeri.
 
@@ -117,7 +117,11 @@ Esempio di esecuzione:
 
 "scegli quante operazioni fare: " 3, "Inserisci il primo numero: " 5, "Inserisci il secondo numero: " 3, abbiamo che risulto = 8. Ora viene chiesto all'utente una delle altre 2 operazioni rimanenti. "Inserisci un numero", 8. Poi viene chiesto "Inserisci l'operazione: ", in questo caso sottrazione. Il risultato ora è 0. Poi si prosegue con il resto delle operazioni rimaste.
 
-**(18_numeri_primi_while.py)**  Chiedi un numero all'utente e trova tutti i numeri primi fino al numero immesso
+**(18_numeri_primi_while.py)**  Chiedi un numero all'utente e trova tutti i numeri primi fino al numero immesso.
+
+**(19_classifica_squadre.py)** Chiedi all'utente il nome di 3 squadre di calcio. Per ogni squadra inserisci quante partite la squadra ha vinto, pareggiato o perso. Infine stampa la classifica generale. [VERY HARD!]
+
+**(20_doppio_o_meta.py)**  In questo programma continua a chiedere dei numeri all'utente. Se il numero immesso è pari moltiplica il primo numero immesso dall'utente per 2. Se è dispari dividi per 2 il primo numero immesso dall'utente. Moltiplica o dividi per 2 per i numeri successivi al primo con la stessa logica usando il risultato ottenuto nella prima operazione. Esci dal ciclo e stampa il risultato quando l'utente inserisce il numero 0.
 
 ------------
 
