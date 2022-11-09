@@ -21,3 +21,5 @@ if(n2 > 50):
 
 if(stampato == 0):
     print("Tutto ok")
+
+lettera = input("press any key to exit")
