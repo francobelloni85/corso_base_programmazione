@@ -123,6 +123,8 @@ Esempio di esecuzione:
 
 **(20_doppio_o_meta.py)**  In questo programma continua a chiedere dei numeri all'utente. Se il numero immesso è pari moltiplica il primo numero immesso dall'utente per 2. Se è dispari dividi per 2 il primo numero immesso dall'utente. Moltiplica o dividi per 2 per i numeri successivi al primo con la stessa logica usando il risultato ottenuto nella prima operazione. Esci dal ciclo e stampa il risultato quando l'utente inserisce il numero 0.
 
+**(21_while_pari_dispari.py)**  In questo programma continua a chiedere dei numeri all'utente. Se il numero immesso è pari stampa pari. Se è dispari stampa dispari. Esci dal ciclo se l'utente inserisce un numero che è doppio rispetto all'ultimo numero immesso. Es. Inserisco 2 poi inserisco 4 al ciclo successivo devo quindi uscire.
+
 ------------
 
 ## PROGETTI
