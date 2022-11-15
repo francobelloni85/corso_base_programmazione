@@ -125,11 +125,11 @@ Esempio di esecuzione:
 
 **(21_while_pari_dispari.py)**  In questo programma continua a chiedere dei numeri all'utente. Se il numero immesso è pari stampa pari. Se è dispari stampa dispari. Esci dal ciclo se l'utente inserisce un numero che è doppio rispetto all'ultimo numero immesso. Es. Inserisco 2 poi inserisco 4 al ciclo successivo devo quindi uscire.
 
-**(22_while_pari_dispari.py)**  In questo programma chiedi 10 numeri all'utente. Se il numero immesso è pari stampa pari. Se è dispari stampa dispari. Esci dal ciclo se l'utente inserisce un numero che è doppio rispetto all'ultimo numero immesso. Es. Inserisco 2 poi inserisco 4 al ciclo successivo devo quindi uscire.
-
 **(22_while_concatena_stringa.py)**
 Chiedi 10 numeri all'utente. Conta quante volte il numero è maggiore di 50. Conta quante volte il numero minore di 15.
 Alla fine stampa una stringa in base al conteggio. Nella stringa ci saranno tanti * quanti sono i numeri maggiori di 50 e # quanti sono i numeri minori di 15. Esempio: 80,4,22,100,150,5,43,65,2,45 ovvero 4 numeri>50 e 3 numeri < 15. La stringa finale sarà: ****###.
+
+**(23_while_conta_successivo.py)**  Chiedi 10 numeri all'utente. Stampa quante volte il numero appena inserito è maggiore del numero precedente. Ad esempio con 5 numeri: 10 11 9 3 5 il risultato è 2.
 
 ------------
 
