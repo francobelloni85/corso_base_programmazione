@@ -131,6 +131,14 @@ Alla fine stampa una stringa in base al conteggio. Nella stringa ci saranno tant
 
 **(23_while_conta_successivo.py)**  Chiedi 10 numeri all'utente. Stampa quante volte il numero appena inserito è maggiore del numero precedente. Ad esempio con 5 numeri: 10 11 9 3 5 il risultato è 2.
 
+**(23_while_conta_successivo_doppio.py)**  Chiedi 10 numeri all'utente. Stampa quante volte il numero appena inserito è maggiore sia del numero precedente sia del numero precedente al precedente. Ad esempio con 5 numeri: 10 11 15 3 5 il risultato è 1.
+
+------------
+
+## AND OR NOT
+
+**(30_data.py)**  Chiedi 3 numeri all'utente come se fossero una data. (Giorno, Mese, Anno). Stampa la data se è corretta oppure tanti messaggi di errore, uno per ogni inesattezza. ES 50 12 1985 => "Un mese al massimo ha solo 31 giorni". Presta attenzione a Febbraio e anni bisistili!
+
 ------------
 
 ## PROGETTI
