@@ -83,6 +83,8 @@ Se l'utente sceglie un operazione non contemplata effettua la somma.
 
 **(9_tasse.py)**  Calcola le tasse da pagare e stampa il risultato. Se hai guadagnato meno di 10.000€ all'anno paghi 0€ di irpef. Se hai guadagnato tra 10.000 e 30.000€ all'anno paghi il 22% di tasse. Se hai guadagnato più di 30.000 euro paghi il 22% da 10.000 fino a 30.000 euro più il 33% della somma eccedente. Ad esempio se guadagno 36.000 euro allora pagherò 0€ per la parte da 0 a 10.000€, poi pagherò il 22% per la parte da 10.000€ a 30.000€ e paghero il 33% sulla parte eccedente i 30.000€ (ovvero 6000€).
 
+**(10A_date.py)**  Ricevute in input due date (giorno-mese-anno) determinare la piu piccola.
+
 ------------
 
 ### WHILE
@@ -131,7 +133,22 @@ Alla fine stampa una stringa in base al conteggio. Nella stringa ci saranno tant
 
 **(23_while_conta_successivo.py)**  Chiedi 10 numeri all'utente. Stampa quante volte il numero appena inserito è maggiore del numero precedente. Ad esempio con 5 numeri: 10 11 9 3 5 il risultato è 2.
 
-**(23_while_conta_successivo_doppio.py)**  Chiedi 10 numeri all'utente. Stampa quante volte il numero appena inserito è maggiore sia del numero precedente sia del numero precedente al precedente. Ad esempio con 5 numeri: 10 11 15 3 5 il risultato è 1.
+**(24_while_conta_successivo_doppio.py)**  Chiedi 10 numeri all'utente. Stampa quante volte il numero appena inserito è maggiore sia del numero precedente sia del numero precedente al precedente. Ad esempio con 5 numeri: 10 11 15 3 5 il risultato è 1.
+
+**(25_while_divisione_per_sottrazione.py)**  Chiedi 2 numeri positivi all'utente. Ripeti l'operazione se uno dei due è negativo o 0. Questi 2 numeri sono chiamati divisore e dividento. Stampa il risultato della divisione applicando il metodo delle divisioni successive.
+Es. Divisore 13 e dividento = 5. Risultato = 2 con resto = 2
+
+**(26_numero_segreto_v2.py)**  Chiedi all'utente di indovinare un numero segreto. Se il numero immesso diverso da quello da indovinare dai all'utente un piccolo indizio formato dalla stringa ("Piu' piccolo/grande") e dall'aggettivo "acqua, fuochino, fuoco" in base alla differenza tra i 2 numeri.
+
+differenza >= 20        -> acqua
+
+10 > differenza < 20    -> fuochino
+
+differenza < 10         -> fuoco
+
+Es. numero più grande - fuoco
+
+Una volta indovinato il numero stampa il numero di tentativi che sono stati necessari per indovinare.
 
 ------------
 
