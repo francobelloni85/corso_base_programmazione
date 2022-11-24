@@ -136,7 +136,7 @@ Alla fine stampa una stringa in base al conteggio. Nella stringa ci saranno tant
 **(24_while_conta_successivo_doppio.py)**  Chiedi 10 numeri all'utente. Stampa quante volte il numero appena inserito è maggiore sia del numero precedente sia del numero precedente al precedente. Ad esempio con 5 numeri: 10 11 15 3 5 il risultato è 1.
 
 **(25_while_divisione_per_sottrazione.py)**  Chiedi 2 numeri positivi all'utente. Ripeti l'operazione se uno dei due è negativo o 0. Questi 2 numeri sono chiamati divisore e dividento. Stampa il risultato della divisione applicando il metodo delle divisioni successive.
-Es. Divisore 13 e dividento = 5. Risultato = 2 con resto = 2
+Es. Divisore 13 e dividento = 5. Risultato = 2 con resto = 3
 
 **(26_numero_segreto_v2.py)**  Chiedi all'utente di indovinare un numero segreto. Se il numero immesso diverso da quello da indovinare dai all'utente un piccolo indizio formato dalla stringa ("Piu' piccolo/grande") e dall'aggettivo "acqua, fuochino, fuoco" in base alla differenza tra i 2 numeri.
 
