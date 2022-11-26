@@ -10,10 +10,14 @@ i = 1
 while i <= 9:
     # Chiedo il numero all'utente
     numero_inserito=int(input("Inserisci un numero: "))
-    # Se il nuovo numero è maggiore del precedente allora 
-    # devo incrementare il contatore
-    if(numero_inserito > numero_precedente):
-        numeri_maggiori=numeri_maggiori+1
+
+    # Devo avere almeno 2 numeri per iniziare il confronto
+    if(i >= 1):
+        
+        # Se il nuovo numero è maggiore del precedente allora 
+        # devo incrementare il contatore
+        if(numero_inserito > numero_precedente):
+            numeri_maggiori=numeri_maggiori+1
 
     # sovrascrivo la variabile, salvando il 
     # "vecchio numero"
