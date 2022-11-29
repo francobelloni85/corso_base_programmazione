@@ -164,3 +164,9 @@ Una volta indovinato il numero stampa il numero di tentativi che sono stati nece
 
 **(A_morra_cinese.py)**  Crea il gioco "Carta-Sasso-Forbici" da giocare contro il computer. Il computer gioca sempre CARTA, poi SASSO e infine FORBICI. Il gioco finisce quando l'utente o il pc vincono 2 parite.
 Inizialmente si chiede all'utente cosa vuole giocare, poi si confronta con il risultato del pc. Ad ogni mano si informa se c'è stato un pareggio, una vittoria oppure una sconfitta. Viene anche mostrato il riepilogo del risultato del gioco con tutte le mani disputate: VITTORIE=..., SCONFITTE =..., PAREGGI=...
+
+------------
+
+## LINK PROGETTI STUDENTI
+
+<https://isiskeynes-my.sharepoint.com/:x:/r/personal/francesco_belloni_isiskeynes_it/_layouts/15/Doc.aspx?sourcedoc=%7BE9C69CC1-1BD8-4455-8437-869655CD193C%7D&file=PeerToPeer.xlsx&action=default&mobileredirect=true>
