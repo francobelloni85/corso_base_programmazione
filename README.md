@@ -85,6 +85,8 @@ Se l'utente sceglie un operazione non contemplata effettua la somma.
 
 **(10A_date.py)**  Ricevute in input due date (giorno-mese-anno) determinare la piu piccola.
 
+**(11A_lotto.py)**  Gioco del lotto. Chiedi all'utente 5 numeri. I numeri da indovinare sono = 6, 12, 18, 3, 5. Stampa "Ambo", "tris", "quaterna", "cinquina" nel caso l'utente indovini. Non fare controlli se l'utente iserisce numeri > 90 o ripete gli stessi numeri.
+
 ------------
 
 ### WHILE
