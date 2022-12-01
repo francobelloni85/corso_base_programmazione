@@ -85,8 +85,6 @@ Se l'utente sceglie un operazione non contemplata effettua la somma.
 
 **(10A_date.py)**  Ricevute in input due date (giorno-mese-anno) determinare la piu piccola.
 
-**(11A_lotto.py)**  Gioco del lotto. Chiedi all'utente 5 numeri. I numeri da indovinare sono = 6, 12, 18, 3, 5. Stampa "Ambo", "tris", "quaterna", "cinquina" nel caso l'utente indovini. Non fare controlli se l'utente iserisce numeri > 90 o ripete gli stessi numeri.
-
 ------------
 
 ### WHILE
@@ -156,7 +154,9 @@ Una volta indovinato il numero stampa il numero di tentativi che sono stati nece
 
 ## AND OR NOT
 
-**(30_data.py)**  Chiedi 3 numeri all'utente come se fossero una data. (Giorno, Mese, Anno). Stampa la data se è corretta oppure tanti messaggi di errore, uno per ogni inesattezza. ES 50 12 1985 => "Un mese al massimo ha solo 31 giorni". Presta attenzione a Febbraio e anni bisistili!
+**(50_data.py)**  Chiedi 3 numeri all'utente come se fossero una data. (Giorno, Mese, Anno). Stampa la data se è corretta oppure tanti messaggi di errore, uno per ogni inesattezza. ES 50 12 1985 => "Un mese al massimo ha solo 31 giorni". Presta attenzione a Febbraio e anni bisistili!
+
+**(51_lotto.py)**  Gioco del lotto. Chiedi all'utente 5 numeri. I numeri da indovinare sono = 6, 12, 18, 3, 5. Stampa "Ambo", "tris", "quaterna", "cinquina" nel caso l'utente indovini. Non fare controlli se l'utente iserisce numeri > 90 o ripete gli stessi numeri.
 
 ------------
 
@@ -169,4 +169,4 @@ Inizialmente si chiede all'utente cosa vuole giocare, poi si confronta con il ri
 
 ## LINK PROGETTI STUDENTI
 
-<https://isiskeynes-my.sharepoint.com/:x:/r/personal/francesco_belloni_isiskeynes_it/_layouts/15/Doc.aspx?sourcedoc=%7BE9C69CC1-1BD8-4455-8437-869655CD193C%7D&file=PeerToPeer.xlsx&action=default&mobileredirect=true>
+<https://isiskeynes-my.sharepoint.com/:x:/g/personal/francesco_belloni_isiskeynes_it/EXpPcFgU5FpEnlMrroA0-n4BSscG1DhI4ZgiElP4k7HGWg?e=k0YOsA>
