@@ -58,6 +58,22 @@ esempi BREVI di codice python / parole chiave del linguaggio:
 
 `____continue`
 
+### Sintassi RANDOM
+
+Per poter generare un numero random bisogna usare una funzione di python. Nel concreto bisogna:
+
+1) Scrivere `import random` all'inizio del file
+
+2) Usare la funzione random.randrange() che ci permette di ottenere un numero random
+
+Le 2 funzioni che usiamo sono:
+
+`n = random.randrange(100)`
+
+`m = random.randrange(50,100)`
+
+n sarà un numero compreso tra 0 e 100. m sarà un numero compreso tra 50 e 100.
+
 ------------
 
 ## ESERCIZI
@@ -150,13 +166,26 @@ Es. numero più grande - fuoco
 
 Una volta indovinato il numero stampa il numero di tentativi che sono stati necessari per indovinare.
 
+**(27_fattori.py)**  Chiedi 1 numero positivo all'utente. Ripeti l'operazione se il numero è zero oppure negativo. Stampa i fattori del numero.
+X è un fattore del numero N se il resto della divisione tra N ed X è uguale a zero. Il fattori di 10 sono 1,2,5,10.
+
+**(28_numero_primo.py)**  Stampa se il numero immesso è un numero primo.
+
+**(29_random.py)**  Genera un numero random. Stampa se pari o dispari.
+
+**(30_calcola_frequenze.py)**  Calcola e stampa le frequenze di 100 lanci di dadi. (es. numero 1 uscito 33 volte, numero 2 uscito 21 volte, ...)
+
+**(31_calcola_pagella.py)**  Chiedi all'utente di inserire 2 voti per materia. Le materie sono 5 Matematica, Italiano, Storia, Inglese e Informatica. Calcola se l'utente è promosso oppure bocciato. Si è promossi se la media è superiore a 6 ed è presente solamente una materia insufficente.
+
 ------------
 
 ## AND OR NOT
 
 **(50_data.py)**  Chiedi 3 numeri all'utente come se fossero una data. (Giorno, Mese, Anno). Stampa la data se è corretta oppure tanti messaggi di errore, uno per ogni inesattezza. ES 50 12 1985 => "Un mese al massimo ha solo 31 giorni". Presta attenzione a Febbraio e anni bisistili!
 
-**(51_lotto.py)**  Gioco del lotto. Chiedi all'utente 5 numeri. I numeri da indovinare sono = 6, 12, 18, 3, 5. Stampa "Ambo", "tris", "quaterna", "cinquina" nel caso l'utente indovini. Non fare controlli se l'utente iserisce numeri > 90 o ripete gli stessi numeri.
+**(51_lotto.py)**  Gioco del lotto. Chiedi all'utente 5 numeri. I numeri da indovinare sono = 6, 12, 18, 3, 5. Stampa "Ambo", "tris", "quaterna", "cinquina" nel caso l'utente indovini. Controlla solo se l'utente non iserisca numeri > 90.
+
+**(52_lotto_hard.py)**  Gioco del lotto. Chiedi all'utente 5 numeri. I numeri da indovinare sono = 6, 12, 18, 3, 5. Stampa "Ambo", "tris", "quaterna", "cinquina" nel caso l'utente indovini. Controlla che l'utente non iserisca numeri > 90 e un numero già immesso.
 
 ------------
 
