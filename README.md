@@ -194,6 +194,24 @@ X è un fattore del numero N se il resto della divisione tra N ed X è uguale a 
 **(A_morra_cinese.py)**  Crea il gioco "Carta-Sasso-Forbici" da giocare contro il computer. Il computer gioca sempre CARTA, poi SASSO e infine FORBICI. Il gioco finisce quando l'utente o il pc vincono 2 parite.
 Inizialmente si chiede all'utente cosa vuole giocare, poi si confronta con il risultato del pc. Ad ogni mano si informa se c'è stato un pareggio, una vittoria oppure una sconfitta. Viene anche mostrato il riepilogo del risultato del gioco con tutte le mani disputate: VITTORIE=..., SCONFITTE =..., PAREGGI=...
 
+**(D_crea_squadre_random.py)**  Crea un programma che permetta di creare n squadre di alunni in modo random. Gli input sono il numero di alunni della classe e il numero di squadre.
+
+N alunni = 20
+
+N squadre = 4
+
+L'output deve essere:
+
+Squadra1 = 2,6,7,10,12
+
+Squadra2 = 1,11,9,15,19
+
+Squadra3 = 4,5,8,14,18
+
+Squadra4 = 18,17,16,20,3
+
+I numeri del registro non si devono ripetere.
+
 ------------
 
 ## LINK PROGETTI STUDENTI
