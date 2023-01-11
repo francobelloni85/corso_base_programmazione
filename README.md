@@ -74,6 +74,36 @@ Le 2 funzioni che usiamo sono:
 
 n sarà un numero compreso tra 0 e 100. m sarà un numero compreso tra 50 e 100.
 
+## TABELLA VALUTAZIONE PROGETTO
+
+Nel secondo quadrimestre bisognerà pensare, programmare e presentare 3 programmi.
+
+Il voto sarà così composto:
+
+| Valutazione        | Punti |
+| ------------------ | ----- |
+| Documentazione     | 2     |
+| Logica/Difficolta  | 3     |
+| Codice             | 2     |
+| Esposizione        | 2     |
+| Git                | 1     |
+
+Una volta concluso il progetto bisognerà creare una presentazione di massimo 20 min in cui si espongono le parti salienti.
+
+Il progetto per poter avere tutti e 3 i punti di "Logica/Difficolta" dovrà essere abbastanza corposo e prevedere una qualche specie di algoritmo e decisione sulle variabili.
+
+Per la documentazione si può seguire il progetto di prova che si trova nella cartella PROGETTI. La documentazione deve includere una analisi dei requisiti, ...
+
+Una volta deciso il proprio progetto si scrive un messaggio (con una descrizione approfondita) nel gruppo TEAMS dove risponderò con APPROVATO/NON APPROVATO.
+
+## LINK UTILI
+
+[Stringhe](https://www.pythoncollege.it/tutorial/stringhe-in-python/)
+
+[Liste](https://www.pythoncollege.it/tutorial/liste-in-python/)
+
+[Funzioni](https://www.pythoncollege.it/tutorial/funzioni-in-python/)
+
 ------------
 
 ## ESERCIZI
@@ -186,6 +216,16 @@ X è un fattore del numero N se il resto della divisione tra N ed X è uguale a 
 **(51_lotto.py)**  Gioco del lotto. Chiedi all'utente 5 numeri. I numeri da indovinare sono = 6, 12, 18, 3, 5. Stampa "Ambo", "tris", "quaterna", "cinquina" nel caso l'utente indovini. Controlla solo se l'utente non iserisca numeri > 90.
 
 **(52_lotto_hard.py)**  Gioco del lotto. Chiedi all'utente 5 numeri. I numeri da indovinare sono = 6, 12, 18, 3, 5. Stampa "Ambo", "tris", "quaterna", "cinquina" nel caso l'utente indovini. Controlla che l'utente non iserisca numeri > 90 e un numero già immesso.
+
+------------
+
+### STRINGHE
+
+**(101_stringa_libro.py)**  Stampare una stringa (che sia l'inizio di un libro) in verticale.
+
+**(102_conta_vocali.py)**  Chiedere una stringa all'utente e contare il numero di vocali.
+
+**(103_numeri_in_stringa.py)**  Chiedere una stringa di sole cifre all'utente. Controlla che sia vero. Se si somma il valore dei numeri presenti. Se no chiedi ancora la stringa.
 
 ------------
 
