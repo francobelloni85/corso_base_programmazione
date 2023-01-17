@@ -225,7 +225,7 @@ X è un fattore del numero N se il resto della divisione tra N ed X è uguale a 
 
 **(102_conta_vocali.py)**  Chiedere una stringa all'utente e contare il numero di vocali.
 
-**(103_numeri_in_stringa.py)**  Chiedere una stringa di sole cifre all'utente. Controlla che sia vero. Se si somma il valore dei numeri presenti. Se no chiedi ancora la stringa.
+**(103_numeri_in_stringa.py)**  Chiedere una stringa di sole cifre all'utente. Controlla che sia vero. Se si, somma il valore dei numeri presenti (cifra per cifra). Se no chiedi ancora la stringa.
 
 ------------
 
