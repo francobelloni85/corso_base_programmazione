@@ -227,6 +227,12 @@ X è un fattore del numero N se il resto della divisione tra N ed X è uguale a 
 
 **(103_numeri_in_stringa.py)**  Chiedere una stringa di sole cifre all'utente. Controlla che sia vero. Se si, somma il valore dei numeri presenti (cifra per cifra). Se no chiedi ancora la stringa.
 
+**(104_conta_carattere_stringa)** Chiedere all'utente una stringa ed un carattere. Contare quante volte quel carattere è presente nella stringa.
+
+**(105_conta_n_vocali)** Conta il numero di vocali e stampane il risultato per ogni vocale. Giorgio. a=0, e=0, i=2, o=2, u=0
+
+**(106_stampa_gambero)** Inserisci una parola/frase. Stampa il risultato partendo da destra. Es. Giorgio diventa "oigroiG"
+
 ------------
 
 ## PROGETTI
