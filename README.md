@@ -233,6 +233,12 @@ X è un fattore del numero N se il resto della divisione tra N ed X è uguale a 
 
 **(106_stampa_gambero)** Inserisci una parola/frase. Stampa il risultato partendo da destra. Es. Giorgio diventa "oigroiG"
 
+**(107_stringa_consonanti)** Chiedi una stringa all'utente. Stampa la stringa inserita senza le vocali.
+
+**(108_stringa_bilanciata)** Chiedi all'utente 2 stringhe. Controlla che tutti i caratteri presenti nella prima stringa siano presenti nella seconda striga. Non importa la posizione. Stampa il risultato se vero o falso.
+
+**(109_stringhe_bilanciate)** Chiedi all'utente 2 stringhe. Controlla che tutti i caratteri presenti nella prima stringa siano presenti nella seconda striga e che i caratteri della seconda stringa siano presenti nella prima.  Non importa la posizione. Stampa il risultato se vero o falso.
+
 ------------
 
 ## PROGETTI
