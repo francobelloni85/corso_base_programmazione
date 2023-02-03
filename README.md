@@ -87,6 +87,7 @@ Il voto sarà così composto:
 | Codice             | 2     |
 | Esposizione        | 2     |
 | Git                | 1     |
+| Compiti            | 2     |
 
 Una volta concluso il progetto bisognerà creare una presentazione di massimo 20 min in cui si espongono le parti salienti.
 
@@ -238,6 +239,12 @@ X è un fattore del numero N se il resto della divisione tra N ed X è uguale a 
 **(108_stringa_bilanciata)** Chiedi all'utente 2 stringhe. Controlla che tutti i caratteri presenti nella prima stringa siano presenti nella seconda striga. Non importa la posizione. Stampa il risultato se vero o falso.
 
 **(109_stringhe_bilanciate)** Chiedi all'utente 2 stringhe. Controlla che tutti i caratteri presenti nella prima stringa siano presenti nella seconda striga e che i caratteri della seconda stringa siano presenti nella prima.  Non importa la posizione. Stampa il risultato se vero o falso.
+
+------------
+
+### LISTE
+
+**(201_lista_nani)** Crea una lista che contiene tutti nani della favola Biancaneve. Poi chiedi all'utente di trovare tutti i nani. Una volta individuati tutti scrivi "Biancaneve", se l'utente inserisce un nome sbagliato scrivi "riprova".
 
 ------------
 
