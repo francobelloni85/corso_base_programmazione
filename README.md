@@ -105,6 +105,14 @@ Una volta deciso il proprio progetto si scrive un messaggio (con una descrizione
 
 [Funzioni](https://www.pythoncollege.it/tutorial/funzioni-in-python/)
 
+## ATTENZIONE ALLE FUNZIONI
+
+**RICORDA**: python si comporta in modo differente in base al tipo di variabile passata come argomento di una funzione:
+
+1) *int, float, string o bool* verrà copiato il valore nella nuova varibile che "vive" dentro nella funzione. La variabile originale non viene modificata.
+
+2) *lista (o meglio un oggetto)* allora stiamo modificando direttamente la variabile originale.
+
 ------------
 
 ## ESERCIZI
@@ -248,6 +256,12 @@ X è un fattore del numero N se il resto della divisione tra N ed X è uguale a 
 
 ------------
 
+### FUNZIONI
+
+**(301_calcolatrice)** Crea una semplice calcolatrice. Chiedi all'utente che operazione vuole eseguire e i due numeri. Le operazioni sono la somma, la differenza, la moltiplicazione e la divisione. Una volta eseguito il calcolo chiedi se vuole proseguire (Y/N) e so vuole eseguire un altro calcolo. Usa le funzioni. Presta attenzione che l'utente non divida per 0.
+
+------------
+
 ## PROGETTI
 
 **(A_morra_cinese.py)**  Crea il gioco "Carta-Sasso-Forbici" da giocare contro il computer. Il computer gioca sempre CARTA, poi SASSO e infine FORBICI. Il gioco finisce quando l'utente o il pc vincono 2 parite.
@@ -276,3 +290,7 @@ I numeri del registro non si devono ripetere.
 ## LINK PROGETTI STUDENTI
 
 <https://isiskeynes-my.sharepoint.com/:x:/g/personal/francesco_belloni_isiskeynes_it/EXpPcFgU5FpEnlMrroA0-n4BSscG1DhI4ZgiElP4k7HGWg?e=k0YOsA>
+
+## LINK DOCUMENTAZIONE PROGETTO DI PROVA
+
+<https://isiskeynes-my.sharepoint.com/:w:/g/personal/francesco_belloni_isiskeynes_it/EcLiI8FWHoJNmmNLthg1sqYB4VjqpG0gsROyXOkV2nFALg?e=4k2szq>
