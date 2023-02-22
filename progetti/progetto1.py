@@ -12,9 +12,8 @@
 
 import random
 
-
 # Per dubug per attivare commenti/stampe extra
-verbose_mode_on: bool = True
+verbose_mode_on: bool = False
 
 def load_verbs(verbs: str) -> list[str]:
     """
@@ -22,12 +21,9 @@ def load_verbs(verbs: str) -> list[str]:
     di verbi iniziale in una più maneggevole lista.    
     https://www.w3schools.com/python/ref_string_split.asp
     """
-
     my_list = verbs.split("|")
-
-    if(verbose_mode_on):
-        print("We have " + str(len(my_list)) + " irregular verb")
-    
+    #if(verbose_mode_on):
+    #    print("We have " + str(len(my_list)) + " irregular verb")    
     return my_list
 
 def get_random_indexs(n: int , n_max: int) -> list[int]:
@@ -38,6 +34,7 @@ def get_random_indexs(n: int , n_max: int) -> list[int]:
     Se elemento è presente in una lista
     https://www.geeksforgeeks.org/check-if-element-exists-in-list-in-python/
     """
+
     my_list: list[int] = []
     
     # Controllo che i numeri siano congrui
@@ -56,6 +53,16 @@ def get_random_indexs(n: int , n_max: int) -> list[int]:
     return my_list
 
 
+def get_spaces(lenght_space:int) -> str:
+    """
+    Questa funzione ci permette restituisce una stringa composta solo da spazi
+    lunga quanto il parametro
+    """
+    result: str = ""
+    for line in range(lenght_space):
+        result = result + " "
+    return result
+
 def retrive_verb(input: str, index: int) -> list[str]:
     """
     Questa funzione ci permette di recuperare dalla stringa del verbo
@@ -67,11 +74,10 @@ def retrive_verb(input: str, index: int) -> list[str]:
     if(index > len(input)):
         msg = "index is greater then len(input). index={0} len(input)={1}".format(index,len(input))
         raise Exception(msg)
-
     return my_list[index]
 
-# MAIN ------------------------------------------------ 
 
+# MAIN ------------------------------------------------ 
 
 # Stringa che contiene tutte le informazioni sui verbi
 irregular_verbs_string: str = "Abide,Abode,Abode,Sopportare|Arise,Arose,Arisen,Sorgere|Awake,Awoke,Awoken,Svegliarsi|Be,Was-Were,Been,Essere|Bear,Bore,Born,Sopportar|Beat,Beat,Beaten,Battere|Become,Became,Become,Diventare|Befall,Befel,Befallen,Accadere|Beget,Bego,Begotten,Procreare|Begin,Began,Begun,Cominciare|Behold,Behel,Beheld,Vedere|Bend,Bent,Bent,Curvare"
@@ -109,6 +115,15 @@ score: int = 0
 # Lista dove salvo il risultato della prova
 list_result: list[str] = []
 
+# Utili per la stampa del risultato
+table_length_message_to_print_parameter: int = 0
+table_length_user_answare: int = 0
+table_length_answare: int = 0
+
+# numeri dispari sono i dati
+# numeri pari sono gli spazi
+message_for_result = "| {0} | {1}{2}| {3}{4}| {5}{6}| {7} |"
+    
 while(count < n_questions):
 
     # Recupero l'indice
@@ -116,18 +131,18 @@ while(count < n_questions):
 
     # Recupero il verbo da chiedere all'utente
     current_verb : str = all_verbs[current_random_index]
-    if(verbose_mode_on):
-        print("current_verb= " + current_verb)
+    #if(verbose_mode_on):
+    #    print("current_verb= " + current_verb)
 
     # Estraggo in modo casuale il tipo di esercizio
     verb_mode = random.randrange(0,3)
-    if(verbose_mode_on):
-        print("verb_mode= " + str(verb_mode))
+    #if(verbose_mode_on):
+    #    print("verb_mode= " + str(verb_mode))
 
     # Prendo la parola da chiedere all'utente
     answare: str = retrive_verb(current_verb,verb_mode)
-    if(verbose_mode_on):
-        print("answare= " + str(verb_mode))
+    #if(verbose_mode_on):
+    #    print("answare= " + str(verb_mode))
 
     # Mi serve per poter mostrare all'utente il messaggio
     message_to_print_parameter: str = ""
@@ -139,25 +154,65 @@ while(count < n_questions):
         message_to_print_parameter = retrive_verb(current_verb,0)
 
     msg_to_disply :str= (question_to_print[verb_mode]).format(message_to_print_parameter)
-    user_answare = input(msg_to_disply)
-    
-    #
-    message_for_result = "{0}){1} > {2} > {3}"
-    
-    if(user_answare.lower == answare.lower):
+    user_answare = input(msg_to_disply).strip()
+
+    # Segnalo la correzione all'utente
+    correction: str = ""
+    point = "0 punti"
+    if(user_answare.lower() == answare.lower()):
         score = score + 1
-        list_result.append(message_for_result.format((count+1),message_to_print_parameter,user_answare,"OK"))
+        correction = "OK"        
+        point = "1 punto"
     else:
-        list_result.append(message_for_result.format((count+1),message_to_print_parameter,user_answare,"NO, " + answare))
+        correction = "NO," + answare
+
+    # Mi aggiorno i contatori per gli spazi nella tabella
+    table_length_message_to_print_parameter = 25 - len(message_to_print_parameter)
+    table_length_answare = 25 - len(user_answare)
+    table_length_user_answare =  30- len(correction)
+
+    # Aggiungo una riga per ogni verbo
+    list_result.append(
+        message_for_result.format(
+        (count+1),
+        message_to_print_parameter,
+        get_spaces(table_length_message_to_print_parameter),
+        user_answare,
+        get_spaces(table_length_answare), 
+        correction,
+        get_spaces(table_length_user_answare),
+        point))
 
     count = count + 1 
 
 
-# Stampo il punteggio finale e
-# facendo il ciclo sulla lista
-# il risultato per ogni verbo
-print("Hai totalizzato {0} punti su {1}".format(score, n_questions))
-for line in list_result:
+# Stampo il punteggio finale e facendo il ciclo sulla lista il risultato per ogni verbo
+
+# Mi calcolo la grandezza barra. Grande come la prima riga
+header: str = ""
+for i in range(len(list_result[0])):
+    header = header + "-"
+
+# Stampo l'header della tabella
+print(header)
+# Mi calcolo la distanza per mettere la scritta a metà schermo
+t = int(((len(list_result[0]) - len("RIEPILOGO")))/2)
+print(get_spaces(t)+ "RIEPILOGO")
+print(header)
+
+# Stampo il risultato per ogni verbo
+for line in list_result:    
     print(line)
 
-# [TODO] fix confronto tra stringhe tutte in minuscolo
+# stampo fine tabella 
+print(header)
+print(header)
+
+# Stampo il punteggio
+print("")
+print("Hai totalizzato {0} punti su {1}".format(score, n_questions))
+print("")
+
+# LINKS
+# Tabelle (ma con librerie)
+# https://stackoverflow.com/questions/9535954/printing-lists-as-tabular-data
