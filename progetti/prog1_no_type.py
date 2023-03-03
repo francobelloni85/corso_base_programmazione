@@ -1,3 +1,5 @@
+# VARIANTE SENZA LISTE PER POTERLO USARE ONLINE ...
+
 #---------------------------------------------------
 # Si vuole realizzare un programma che ci aiuti a studiare l’inglese, in particolare i verbi irregolari.
 # Vengono proposti all’utente 10 verbi. 

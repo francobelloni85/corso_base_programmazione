@@ -262,6 +262,14 @@ X è un fattore del numero N se il resto della divisione tra N ed X è uguale a 
 
 ------------
 
+### RANDOM
+
+**(401_estrazione_dado)** conta le estrazione di 2 dati fino a quanto non esce il 6-6.
+
+**(402_stampa_estrazione_dado)** Stampa le combinazioni e quante volte sono uscite le combinazioni di 2 dati fino a quanto non esce il 6-6.
+
+------------
+
 ## PROGETTI
 
 **(A_morra_cinese.py)**  Crea il gioco "Carta-Sasso-Forbici" da giocare contro il computer. Il computer gioca sempre CARTA, poi SASSO e infine FORBICI. Il gioco finisce quando l'utente o il pc vincono 2 parite.
