@@ -301,4 +301,4 @@ I numeri del registro non si devono ripetere.
 
 ## LINK DOCUMENTAZIONE PROGETTO DI PROVA
 
-<https://isiskeynes-my.sharepoint.com/:w:/g/personal/francesco_belloni_isiskeynes_it/EcLiI8FWHoJNmmNLthg1sqYB4VjqpG0gsROyXOkV2nFALg?e=4k2szq>
+Guardare nella cartella progetti il file "ProgettoVerbiIrregolari.pdf"
