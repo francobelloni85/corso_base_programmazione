@@ -80,14 +80,14 @@ Nel secondo quadrimestre bisognerà pensare, programmare e presentare 3 programm
 
 Il voto sarà così composto:
 
-| Valutazione        | Punti |
-| ------------------ | ----- |
-| Documentazione     | 2     |
-| Logica/Difficolta  | 3     |
-| Codice             | 2     |
-| Esposizione        | 2     |
-| Git                | 1     |
-| Compiti            | 2     |
+| Valutazione          | Punti |
+| -------------------- | ----- |
+| Documentazione       | 0-3   |
+| Logica/Difficolta    | 1-3   |
+| Correttezza e codice | 2     |
+| Esposizione          | 1-3   |
+| Git                  | 1     |
+| Mancata consegna     | -1    |
 
 Una volta concluso il progetto bisognerà creare una presentazione di massimo 20 min in cui si espongono le parti salienti.
 
@@ -96,6 +96,46 @@ Il progetto per poter avere tutti e 3 i punti di "Logica/Difficolta" dovrà esse
 Per la documentazione si può seguire il progetto di prova che si trova nella cartella PROGETTI. La documentazione deve includere una analisi dei requisiti, ...
 
 Una volta deciso il proprio progetto si scrive un messaggio (con una descrizione approfondita) nel gruppo TEAMS dove risponderò con APPROVATO/NON APPROVATO.
+
+Se il progetto non viene consegnato entro la scadenza verrà sottratto un punto per ogni lezione di ritardo.
+
+| Documentazione            | Punti |
+| ------------------------- | ----- |
+| Non adeguata              | 0     |
+| Sufficientemente completa | 1     |
+| Chiara ed esaustiva       | 2     |
+
+| Difficolta progetto    | Punti |
+| ---------------------  | ----- |
+| Semplice               | 1     |
+| Medio                  | 2     |
+| Complesso              | 3     |
+
+**Semplice**: prevede poche variabile o nessun algoritmo particolarmente complesso.
+
+**Medio**: prevede degli algormti che manipolano le variabili secondo criteri logici non banali.
+
+**Complesso**: uso di strutture dati diverse da interi e strighe con algormti che manipolano le variabili secondo criteri logici non banali oppure uso di algoritmi decisamente complicati.
+
+| Correttezza e codice   | Punti |
+| ---------------------  | ----- |
+| Programma con errori   | 0     |
+| Programma funzionante  | 1     |
+| Codice ottimizzato     | 2     |
+
+**Codice ottimizzato**: si intende un codice privo di errori, che non abbia ripetizioni facilmente evitabili e scritto seguendo le linee guida.
+
+Bisogna saper spiegare il significato di tutto il codice scritto.
+
+| Esposizione               | Punti |
+| ------------------------- | ----- |
+| Non adeguata              | 0     |
+| Sufficientemente completa | 1     |
+| Chiara ed esaustiva       | 2     |
+
+**Git**: uso di git per tenere traccia del progetto. 1 Punto.
+
+**Voto**: 12 punti totali, per ottenere la sufficenza: 7 / 12.
 
 ## LINK UTILI
 
