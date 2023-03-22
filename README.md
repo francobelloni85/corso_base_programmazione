@@ -82,7 +82,7 @@ Il voto sarà così composto:
 
 | Valutazione          | Punti |
 | -------------------- | ----- |
-| Documentazione       | 0-3   |
+| Documentazione       | 0-2   |
 | Logica/Difficolta    | 1-3   |
 | Correttezza e codice | 2     |
 | Esposizione          | 1-3   |
@@ -135,7 +135,7 @@ Bisogna saper spiegare il significato di tutto il codice scritto.
 
 **Git**: uso di git per tenere traccia del progetto. 1 Punto.
 
-**Voto**: 12 punti totali, per ottenere la sufficenza: 7 / 12.
+**Voto**: 11 punti totali. 11 : 100 = 7 (punti): x  => 700/x.
 
 ## LINK UTILI
 
