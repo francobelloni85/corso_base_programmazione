@@ -294,6 +294,10 @@ X è un fattore del numero N se il resto della divisione tra N ed X è uguale a 
 
 **(201_lista_nani)** Crea una lista che contiene tutti nani della favola Biancaneve. Poi chiedi all'utente di trovare tutti i nani. Una volta individuati tutti scrivi "Biancaneve", se l'utente inserisce un nome sbagliato scrivi "riprova".
 
+**(202_lista_reverse)** crea una nuova lista al ma contrario, list1 = [100, 200, 300, 400, 500] deve diventare list2 =[500, 400, 300, 200, 100]. Non usare la funzione reverse(). Poi stampa il risultato.
+
+**(203_merge_list)** crea una nuova lista lista3 prendendo gli elementi sia dalla lista1 che dalla lista2. list1 = ["M", "na", "i", "Ke"] list2 = ["y", "me", "s", "lly"]. Unisci gli elementi che hanno lo stesso indice. Stampa il risultato.
+
 ------------
 
 ### FUNZIONI
