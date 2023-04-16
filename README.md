@@ -74,68 +74,35 @@ Le 2 funzioni che usiamo sono:
 
 n sarà un numero compreso tra 0 e 100. m sarà un numero compreso tra 50 e 100.
 
-## TABELLA VALUTAZIONE PROGETTO
+### Sintassi STRINGHE
 
-Nel secondo quadrimestre bisognerà pensare, programmare e presentare 3 programmi.
+Inizializzo una stringa con un valore
 
-Il voto sarà così composto:
+`text: str = "Hello word"`
 
-| Valutazione          | Punti |
-| -------------------- | ----- |
-| Documentazione       | 0-2   |
-| Logica/Difficolta    | 1-3   |
-| Correttezza e codice | 2     |
-| Esposizione          | 1-3   |
-| Git                  | 1     |
-| Mancata consegna     | -1    |
+Accedo al singolo carattere con la sintassi delle parentesi quadrate
 
-Una volta concluso il progetto bisognerà creare una presentazione di massimo 20 min in cui si espongono le parti salienti.
+`i: int = 0`
 
-Il progetto per poter avere tutti e 3 i punti di "Logica/Difficolta" dovrà essere abbastanza corposo e prevedere una qualche specie di algoritmo e decisione sulle variabili.
+`singolo_carattere: str = text[i]`
 
-Per la documentazione si può seguire il progetto di prova che si trova nella cartella PROGETTI. La documentazione deve includere una analisi dei requisiti, ...
+singolo_carattere vale 'H' ovvero il primo carattere della stringa. Se aumento l'indice i:
 
-Una volta deciso il proprio progetto si scrive un messaggio (con una descrizione approfondita) nel gruppo TEAMS dove risponderò con APPROVATO/NON APPROVATO.
+`i = i + 1`
 
-Se il progetto non viene consegnato entro la scadenza verrà sottratto un punto per ogni lezione di ritardo.
+`singolo_carattere = text[i]`
 
-| Documentazione            | Punti |
-| ------------------------- | ----- |
-| Non adeguata              | 0     |
-| Sufficientemente completa | 1     |
-| Chiara ed esaustiva       | 2     |
+singolo_carattere ora vale 'e' ovvero il secondo carattere della stringa
 
-| Difficolta progetto    | Punti |
-| ---------------------  | ----- |
-| Semplice               | 1     |
-| Medio                  | 2     |
-| Complesso              | 3     |
+### INDICAZIONI FLOW CHAR
 
-**Semplice**: prevede poche variabile o nessun algoritmo particolarmente complesso.
+Quando andiamo ad disegnare il flowchar dell'esercizio bisogna indicare:
 
-**Medio**: prevede degli algormti che manipolano le variabili secondo criteri logici non banali.
+- il tipo di dato (int, string, double, bool, char) per ogni variabile.
 
-**Complesso**: uso di strutture dati diverse da interi e strighe con algormti che manipolano le variabili secondo criteri logici non banali oppure uso di algoritmi decisamente complicati.
+- indicare se il dato è una variabile oppure è una costante
 
-| Correttezza e codice   | Punti |
-| ---------------------  | ----- |
-| Programma con errori   | 0     |
-| Programma funzionante  | 1     |
-| Codice ottimizzato     | 2     |
-
-**Codice ottimizzato**: si intende un codice privo di errori, che non abbia ripetizioni facilmente evitabili e scritto seguendo le linee guida.
-
-Bisogna saper spiegare il significato di tutto il codice scritto.
-
-| Esposizione               | Punti |
-| ------------------------- | ----- |
-| Non adeguata              | 0     |
-| Sufficientemente completa | 1     |
-| Chiara ed esaustiva       | 2     |
-
-**Git**: uso di git per tenere traccia del progetto. 1 Punto.
-
-**Voto**: 11 punti totali. 11 : 100 = 7 (punti): x  => 700/x.
+- indicare i vincoli di ogni variabile settata dall'utente. Per esempio se chiedo l'età all'utente il dato immesso deve essere un numero ed essere maggiore di 0.
 
 ## LINK UTILI
 
@@ -270,7 +237,9 @@ X è un fattore del numero N se il resto della divisione tra N ed X è uguale a 
 
 ### STRINGHE
 
-**(101_stringa_libro.py)**  Stampare una stringa (che sia l'inizio di un libro) in verticale.
+**(101_stringa_libro.py)** Stampare una stringa dell'utente in verticale: un carattere per riga.
+
+**(101_stringa_libro_costante.py)** Stampare la stringa "Nel mezzo del cammin di nostra vita" in verticale: un carattere per riga.
 
 **(102_conta_vocali.py)**  Chiedere una stringa all'utente e contare il numero di vocali.
 
@@ -287,6 +256,16 @@ X è un fattore del numero N se il resto della divisione tra N ed X è uguale a 
 **(108_stringa_bilanciata)** Chiedi all'utente 2 stringhe. Controlla che tutti i caratteri presenti nella prima stringa siano presenti nella seconda striga. Non importa la posizione. Stampa il risultato se vero o falso.
 
 **(109_stringhe_bilanciate)** Chiedi all'utente 2 stringhe. Controlla che tutti i caratteri presenti nella prima stringa siano presenti nella seconda striga e che i caratteri della seconda stringa siano presenti nella prima.  Non importa la posizione. Stampa il risultato se vero o falso.
+
+**(110_stringhe_palindorme)** Chiedi all'utente una stringa. Poi controlla che sia palindroma e stampa il risultato.
+
+**(111_conta_occorrenze)** Chiedi all'utente due stringa. Poi conta quante volte la seconda stringa è presente nella prima. Utilizza solo while e non le funzioni "speciali" di python.
+
+**(112_tutto_maiuscolo)** Chiedi una stringa. Poi rendi maiuscole tutte le prime lettere delle parole.
+
+**(113_no_punteggiatura)** Chiedi una stringa. Poi rendi rimuovi tutti i caratteri di punteggiatura. Non utilizzare le funzioni "speciali" di python.
+
+**(114_parola_piu_lunga)** Chiedi una stringa. Trova la parola piu lunga e stampala. Non puoi dividere la stringa.
 
 ------------
 
@@ -346,3 +325,67 @@ I numeri del registro non si devono ripetere.
 ## LINK DOCUMENTAZIONE PROGETTO DI PROVA
 
 Guardare nella cartella progetti il file "ProgettoVerbiIrregolari.pdf"
+
+## TABELLA VALUTAZIONE PROGETTO
+
+Nel secondo quadrimestre bisognerà pensare, programmare e presentare 3 programmi.
+
+Il voto sarà così composto:
+
+| Valutazione          | Punti |
+| -------------------- | ----- |
+| Documentazione       | 0-2   |
+| Logica/Difficolta    | 1-3   |
+| Correttezza e codice | 2     |
+| Esposizione          | 0-3   |
+| Git                  | 1     |
+| Mancata consegna     | -1    |
+
+Una volta concluso il progetto bisognerà creare una presentazione di massimo 20 min in cui si espongono le parti salienti.
+
+Il progetto per poter avere tutti e 3 i punti di "Logica/Difficolta" dovrà essere abbastanza corposo e prevedere una qualche specie di algoritmo e decisione sulle variabili.
+
+Per la documentazione si può seguire il progetto di prova che si trova nella cartella PROGETTI. La documentazione deve includere una analisi dei requisiti, ...
+
+Una volta deciso il proprio progetto si scrive un messaggio (con una descrizione approfondita) nel gruppo TEAMS dove risponderò con APPROVATO/NON APPROVATO.
+
+Se il progetto non viene consegnato entro la scadenza verrà sottratto un punto per ogni lezione di ritardo.
+
+| Documentazione            | Punti |
+| ------------------------- | ----- |
+| Non adeguata              | 0     |
+| Sufficientemente completa | 1     |
+| Chiara ed esaustiva       | 2     |
+
+| Difficolta progetto    | Punti |
+| ---------------------  | ----- |
+| Semplice               | 1     |
+| Medio                  | 2     |
+| Complesso              | 3     |
+
+**Semplice**: prevede poche variabile o nessun algoritmo particolarmente complesso.
+
+**Medio**: prevede degli algormti che manipolano le variabili secondo criteri logici non banali.
+
+**Complesso**: uso di strutture dati diverse da interi e strighe con algormti che manipolano le variabili secondo criteri logici non banali oppure uso di algoritmi decisamente complicati.
+
+| Correttezza e codice   | Punti |
+| ---------------------  | ----- |
+| Programma con errori   | 0     |
+| Programma funzionante  | 1     |
+| Codice ottimizzato     | 2     |
+
+**Codice ottimizzato**: si intende un codice privo di errori, che non abbia ripetizioni facilmente evitabili e scritto seguendo le linee guida.
+
+Bisogna saper spiegare il significato di tutto il codice scritto.
+
+| Esposizione               | Punti |
+| ------------------------- | ----- |
+| Non adeguata              | 0     |
+| Deficitaria               | 1     |
+| Sufficientemente completa | 2     |
+| Chiara ed esaustiva       | 3     |
+
+**Git**: uso di git per tenere traccia del progetto. 1 Punto.
+
+**Voto**: 11 punti totali
