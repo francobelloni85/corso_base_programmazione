@@ -116,6 +116,8 @@ Quando andiamo ad disegnare il flowchar dell'esercizio bisogna indicare:
 
 - indicare i vincoli di ogni variabile settata dall'utente. Per esempio se chiedo l'età all'utente il dato immesso deve essere un numero ed essere maggiore di 0.
 
+Per creare il flow char si deve usare un programma grafico. Io suggerisco "Visio" di Microsoft che avete già nel pacchetto office.
+
 ## LINK UTILI
 
 [Stringhe](https://www.pythoncollege.it/tutorial/stringhe-in-python/)
@@ -334,9 +336,13 @@ I numeri del registro non si devono ripetere.
 
 <https://isiskeynes-my.sharepoint.com/:x:/g/personal/francesco_belloni_isiskeynes_it/EXpPcFgU5FpEnlMrroA0-n4BSscG1DhI4ZgiElP4k7HGWg?e=k0YOsA>
 
+------------
+
 ## LINK DOCUMENTAZIONE PROGETTO DI PROVA
 
 Guardare nella cartella progetti il file "ProgettoVerbiIrregolari.pdf"
+
+------------
 
 ## TABELLA VALUTAZIONE PROGETTO
 
@@ -401,3 +407,18 @@ Bisogna saper spiegare il significato di tutto il codice scritto.
 **Git**: uso di git per tenere traccia del progetto. 1 Punto.
 
 **Voto**: 11 punti totali
+
+------------
+
+## TABELLA VALUTAZIONE COMPITI
+
+I compiti per casa vengono valutati "in blu", ovvero non hanno un peso diretto nella valutazione finale. Servono allo studente per l'autovalutazione e per indicatore di impegno nella materia.
+
+| Esposizione               | Punti |
+| ------------------------- | ----- |
+| Non consegnato            | n.c.  |
+| Errata                    | 1     |
+| Sufficiente, ma con errori| 2     |
+| Corretto                  | 3     |
+
+Per creare il flow char si deve usare un programma grafico. Io suggerisco "Visio" di Microsoft che avete già nel pacchetto office.
