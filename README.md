@@ -76,6 +76,8 @@ n sarà un numero compreso tra 0 e 100. m sarà un numero compreso tra 50 e 100.
 
 ### Sintassi STRINGHE
 
+La stringa è un dato immutabile. Una volta inizializzata non è più possibile modificarla. Si può solamente sostituire il suo valore.
+
 Inizializzo una stringa con un valore
 
 `text: str = "Hello word"`
@@ -92,7 +94,17 @@ singolo_carattere vale 'H' ovvero il primo carattere della stringa. Se aumento l
 
 `singolo_carattere = text[i]`
 
-singolo_carattere ora vale 'e' ovvero il secondo carattere della stringa
+singolo_carattere ora vale 'e' ovvero il secondo carattere della stringa.
+
+Per concatenare due strighe si usa il simbolo +:
+
+`prima: str = "Hello"`
+
+`seconda: str = " word"`
+
+`totale: str = prima + seconda`
+
+nella variabile totale si avrà il valore "Hello word".
 
 ### INDICAZIONI FLOW CHAR
 
