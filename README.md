@@ -175,11 +175,11 @@ Se l'utente sceglie un operazione non contemplata effettua la somma.
 
 1
 
-1 2 
+1 2
 
-1 2 3 
+1 2 3
 
-1 2 3 4 
+1 2 3 4
 
 1 2 3 4 5
 
