@@ -422,3 +422,7 @@ I compiti per casa vengono valutati "in blu", ovvero non hanno un peso diretto n
 | Corretto                  | 3     |
 
 Per creare il flow char si deve usare un programma grafico. Io suggerisco "Visio" di Microsoft che avete già nel pacchetto office.
+
+Quando si consegnano i compiti chiamare il file NomeEsercizio_Cognome.pdf e NomeEsercizio_Cognome.py (o NomeEsercizio_Cognome.txt) es. "15_media_while_Rossi.pdf"
+
+Vedere il riferimento alla sezione "INDICAZIONI FLOW CHAR" per tutte le indicazione da inserire nell'esercizio.
