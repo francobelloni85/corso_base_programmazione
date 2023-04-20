@@ -106,6 +106,16 @@ Per concatenare due strighe si usa il simbolo +:
 
 nella variabile totale si avrà il valore "Hello word".
 
+Per convertire una stringa in numero si usa la funzione `int()` se si tratta di un intero.
+
+`i: int = int("5")`
+
+la variabile i ora ha il valore numerico 5.
+
+Per poter stampare un numero insime una stringa bisogna usare la funzione `str`. str trasforma il numero in stringa. Ad esempio:
+
+`print("è uscito il numero: " + str(i) + " sulla ruota di Bari.")`
+
 ### INDICAZIONI FLOW CHAR
 
 Quando andiamo ad disegnare il flowchar dell'esercizio bisogna indicare:
