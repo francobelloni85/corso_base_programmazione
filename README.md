@@ -291,6 +291,8 @@ X è un fattore del numero N se il resto della divisione tra N ed X è uguale a 
 
 **(114_parola_piu_lunga)** Chiedi una stringa. Trova la parola piu lunga e stampala. Non puoi dividere la stringa.
 
+**(115_AABB)** Stampa 99 righe da 1 a 100 con questa logica: stampa tante A quante sono le unità e  stampa tante B quante sono le decine. Es. "1 > A; 2 > AA; 13 > BAAA; 20 > BB"
+
 ------------
 
 ### LISTE
