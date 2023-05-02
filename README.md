@@ -130,6 +130,28 @@ il risultato con:
 
 sara "ilovepython" tutto in minuscolo e "ILOVEPYTHON" tutto in maiuscolo.
 
+### CONVERSIONI E OPERATORI
+
+Se eseguimo `a = 24 / 10`
+
+il risultato a sarà 2.4 un numero in virgola mobile.
+
+se vogliamo la parte intera del risultato dobbiamo utilizzare il comando `int()`:
+
+`b = int(24 / 10)`
+
+b in questo caso è 2.
+
+Se vogliamo il resto della divisione dobbiamo usare l'operatore `%`. il simbolo `%` ci permette di ottere il resto della divisione.
+
+`c = int(24 % 10)`
+
+c in questo caso avrà il valore 4.
+
+le conversioni che si possono effettuare sono:
+
+int(x), str(x), float(x), bool(x)
+
 ### INDICAZIONI FLOW CHAR
 
 Quando andiamo ad disegnare il flowchar dell'esercizio bisogna indicare:
