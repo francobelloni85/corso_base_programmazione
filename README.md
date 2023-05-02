@@ -126,6 +126,8 @@ Quando andiamo ad disegnare il flowchar dell'esercizio bisogna indicare:
 
 - indicare i vincoli di ogni variabile settata dall'utente. Per esempio se chiedo l'età all'utente il dato immesso deve essere un numero ed essere maggiore di 0.
 
+- se si può, indicare il legame tra input e output. Per esempio in "106_stampa_gambero". Input = "Giorgio"; Output = "oigroiG". Nell'output il primo carattere è l'ultimo della stringa di input. Output[0] = Input[len(Input)-1]
+
 Per creare il flow char si deve usare un programma grafico. Io suggerisco "Visio" di Microsoft che avete già nel pacchetto office.
 
 ## LINK UTILI
