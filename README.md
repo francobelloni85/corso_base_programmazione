@@ -116,6 +116,20 @@ Per poter stampare un numero insime una stringa bisogna usare la funzione `str`.
 
 `print("è uscito il numero: " + str(i) + " sulla ruota di Bari.")`
 
+Per trasformare in maiuscolo e minuscolo si possono usare le funzioni `lower()` e `upper()`:
+
+`string_a = 'iLovePython'`
+
+`string_b = 'iLovePython'`
+
+il risultato con:
+
+`print(string_a.lower())`
+
+`print(string.upper())`
+
+sara "ilovepython" tutto in minuscolo e "ILOVEPYTHON" tutto in maiuscolo.
+
 ### INDICAZIONI FLOW CHAR
 
 Quando andiamo ad disegnare il flowchar dell'esercizio bisogna indicare:
