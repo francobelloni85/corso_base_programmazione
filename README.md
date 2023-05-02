@@ -126,7 +126,7 @@ il risultato con:
 
 `print(string_a.lower())`
 
-`print(string.upper())`
+`print(string_b.upper())`
 
 sara "ilovepython" tutto in minuscolo e "ILOVEPYTHON" tutto in maiuscolo.
 
