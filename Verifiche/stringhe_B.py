@@ -42,7 +42,7 @@ while True:
         print("Lunghezza diversa")
         is_same_lenght = False
 
-    if (is_same_vowels and is_same_lenght):
+    if (is_same_vowels and is_same_lenght and (len(text_a) != 0 or len(text_b) != 0)):
         break
 
 print("Fine ... ")
