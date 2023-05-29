@@ -7,6 +7,23 @@ import turtle
 from threading import Thread
 from enum import Enum
 
+
+
+
+# windows 
+WINDOWS_HEIGHT: int = 600
+WINDOWS_WIDTH: int = 800
+
+# board
+BOARD_HEIGHT : int = int((WINDOWS_HEIGHT - 100)/2)
+BOARD_WIDTH : int = int((WINDOWS_WIDTH - 100)/2)
+
+# ()--------------
+# |            |
+# |     (0,0)  | 
+# |            |
+# --------------
+
 class Paddle(Enum):
     A = 1
     B = 2
@@ -64,6 +81,10 @@ class Main:
             self.paddle_b_down()
             self.paddle_b_step_to_do = self.paddle_b_step_to_do + 1 
 
+    def print_score(self):
+        self.pen.clear()
+        self.pen.write("Player A: {}  Player B: {}".format(self.score_a, self.score_b), align="center", font=("Courier", 24, "normal"))
+        
     def __init__(self):
 
         self.game_info: PlaygroundData = PlaygroundData(self)
@@ -71,12 +92,34 @@ class Main:
         self.wn = turtle.Screen()
         self.wn.title("Pong")
         self.wn.bgcolor("black")
-        self.wn.setup(width=800, height=600)
+        self.wn.setup(width=WINDOWS_WIDTH, height=WINDOWS_HEIGHT)
         self.wn.tracer(0)
 
         # Score
         self.score_a = 0
         self.score_b = 0
+
+        # Pen
+        self.pen = turtle.Turtle()
+        self.pen.speed(0)
+        self.pen.shape("square")
+        self.pen.color("red")
+        self.pen.penup()
+        self.pen.hideturtle()
+        self.pen.goto(0, 260)
+        top_height = self.wn.window_height()/2  # positive height/2 is the top of the screen
+        y = top_height - top_height/50          # decreasing a little bit so text will be visible
+        self.pen.setposition(0, y)
+        self.pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "normal"))
+        
+        # Campo di gioco
+        self.board = turtle.Turtle()
+        self.board.color("grey")
+        self.board.speed(0)
+        self.board.shape("square")       
+        self.board.shapesize(stretch_wid=30,stretch_len=35)
+        self.board.penup()        
+        self.board.goto(0, 0)
 
         # Paddle A
         self.paddle_a = turtle.Turtle()
@@ -85,7 +128,7 @@ class Main:
         self.paddle_a.color("white")
         self.paddle_a.shapesize(stretch_wid=5,stretch_len=1)
         self.paddle_a.penup()
-        self.paddle_a.goto(-350, 0)
+        self.paddle_a.goto(-BOARD_WIDTH, 0)
 
         # Paddle B
         self.paddle_b = turtle.Turtle()
@@ -94,7 +137,7 @@ class Main:
         self.paddle_b.color("white")
         self.paddle_b.shapesize(stretch_wid=5,stretch_len=1)
         self.paddle_b.penup()
-        self.paddle_b.goto(350, 0)
+        self.paddle_b.goto(BOARD_WIDTH, 0)
 
         # Ball
         self.ball = turtle.Turtle()
@@ -103,18 +146,8 @@ class Main:
         self.ball.color("white")
         self.ball.penup()
         self.ball.goto(0, 0)
-        self.ball.dx = 1
-        self.ball.dy = 1
-
-        # Pen
-        self.pen = turtle.Turtle()
-        self.pen.speed(0)
-        self.pen.shape("square")
-        self.pen.color("white")
-        self.pen.penup()
-        self.pen.hideturtle()
-        self.pen.goto(0, 260)
-        self.pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "normal"))
+        self.ball.dx = 0.1
+        self.ball.dy = 0.1
 
         # Keyboard bindings
         self.wn.listen()
@@ -152,29 +185,26 @@ class Main:
 
             self.turn_paddle_a_first = not self.turn_paddle_a_first
 
-            # Border checking
+            # Border checking --------------
 
-            # Top and bottom
+            # Top
             if self.ball.ycor() > 290:
                 self.ball.sety(290)
                 self.ball.dy *= -1
-            
-            elif self.ball.ycor() < -290:
+            # Bottom
+            if self.ball.ycor() < -290:
                 self.ball.sety(-290)
                 self.ball.dy *= -1
-
-            # Left and right
-            if self.ball.xcor() > 350:
+            # Left 
+            if self.ball.xcor() > BOARD_WIDTH:
                 self.score_a += 1
-                self.pen.clear()
-                self.pen.write("Player A: {}  Player B: {}".format(self.score_a, self.score_b), align="center", font=("Courier", 24, "normal"))
+                self.print_score()
                 self.ball.goto(0, 0)
                 self.ball.dx *= -1
-
-            elif self.ball.xcor() < -350:
+            # Right
+            if self.ball.xcor() < -BOARD_WIDTH:
                 self.score_b += 1
-                self.pen.clear()
-                self.pen.write("Player A: {}  Player B: {}".format(self.score_a, self.score_b), align="center", font=("Courier", 24, "normal"))
+                self.print_score()
                 self.ball.goto(0, 0)
                 self.ball.dx *= -1
 
@@ -241,7 +271,6 @@ class PaddleThread (Thread):
                 print("GO DOWN")
                 self.callback_move_paddle(-1)
             i = i + 1
-
 
 main: Main = Main()
 main.run()
