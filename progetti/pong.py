@@ -2,27 +2,41 @@
 # By @TokyoEdTech
 # https://www.youtube.com/watch?v=XGf2GcyHPhc
 
+# TODO
+# uscire senza errore >  https://stackoverflow.com/questions/65643645/tkinter-tclerror-invalid-command-name-canvas
+# Lasciate dentro impostazioni fisse che non si adattano alla grandezza dello schermo
+
 import time
 import turtle
 from threading import Thread
 from enum import Enum
 
-
-
-
 # windows 
-WINDOWS_HEIGHT: int = 600
+WINDOWS_HEIGHT: int = 500
 WINDOWS_WIDTH: int = 800
 
 # board
-BOARD_HEIGHT : int = int((WINDOWS_HEIGHT - 100)/2)
-BOARD_WIDTH : int = int((WINDOWS_WIDTH - 100)/2)
+BOARD_HEIGHT : int = int((WINDOWS_HEIGHT - 100)/2)  # 200
+BOARD_WIDTH : int = int((WINDOWS_WIDTH - 100)/2)    # 350
 
-# ()--------------
-# |            |
-# |     (0,0)  | 
-# |            |
-# --------------
+BOARD_Y_UPPER_LIMIT = 290
+BOARD_Y_LOWER_LIMIT = -290
+
+PADDLE_WIDTH: int = 100
+PADDLE_HALF_WIDTH: int = int(PADDLE_WIDTH/2)
+
+# Ad ogni colpo di quanto aumenta la velocita della pallina
+BALL_SPEED_INCREASE : float = 1.5
+
+# (-350,+290) ----------------   (+350,+290)
+#     |                               |
+# (-350,0)          (0,0)          (+350,0) 
+#     |                               |
+# (-350,-290) ----------------   (+350,-290)
+
+
+# Informazioni turtle
+# le figure di default sono 20px*20px
 
 class Paddle(Enum):
     A = 1
@@ -36,22 +50,26 @@ class Main:
     def paddle_a_up(self):
         y = self.paddle_a.ycor()
         y += 20
-        self.paddle_a.sety(y)
+        if(y + PADDLE_HALF_WIDTH< BOARD_Y_UPPER_LIMIT):
+            self.paddle_a.sety(y)
 
     def paddle_a_down(self):
         y = self.paddle_a.ycor()
         y -= 20
-        self.paddle_a.sety(y)
+        if(y - PADDLE_HALF_WIDTH> BOARD_Y_LOWER_LIMIT):
+            self.paddle_a.sety(y)
 
     def paddle_b_up(self):
         y = self.paddle_b.ycor()
         y += 20
-        self.paddle_b.sety(y)
+        if(y + PADDLE_HALF_WIDTH< BOARD_Y_UPPER_LIMIT):
+            self.paddle_b.sety(y)
 
     def paddle_b_down(self):
         y = self.paddle_b.ycor()
         y -= 20
-        self.paddle_b.sety(y)
+        if(y - PADDLE_HALF_WIDTH> BOARD_Y_LOWER_LIMIT):
+            self.paddle_b.sety(y)
 
     def set_step_paddle_a(self,step_to_do):
         self.paddle_a_step_to_do = step_to_do
@@ -60,8 +78,7 @@ class Main:
         self.paddle_b_step_to_do = step_to_do
 
     def move_paddle_a(self):
-        print("sono: " + str(self.paddle_a_step_to_do))
-        
+        print("sono A -- GO : " + str(self.paddle_a_step_to_do))        
         if self.paddle_a_step_to_do == 0:
             return    
         if(self.paddle_a_step_to_do > 0):
@@ -72,6 +89,7 @@ class Main:
             self.paddle_a_step_to_do = self.paddle_a_step_to_do + 1 
 
     def move_paddle_b(self):
+        print("sono B -- GO: " + str(self.paddle_a_step_to_do))
         if self.paddle_b_step_to_do == 0:
             return    
         if(self.paddle_b_step_to_do > 0):
@@ -99,7 +117,7 @@ class Main:
         self.score_a = 0
         self.score_b = 0
 
-        # Pen
+        # Pen for score
         self.pen = turtle.Turtle()
         self.pen.speed(0)
         self.pen.shape("square")
@@ -114,7 +132,7 @@ class Main:
         
         # Campo di gioco
         self.board = turtle.Turtle()
-        self.board.color("grey")
+        self.board.color("slate gray")
         self.board.speed(0)
         self.board.shape("square")       
         self.board.shapesize(stretch_wid=30,stretch_len=35)
@@ -126,7 +144,7 @@ class Main:
         self.paddle_a.speed(0)
         self.paddle_a.shape("square")
         self.paddle_a.color("white")
-        self.paddle_a.shapesize(stretch_wid=5,stretch_len=1)
+        self.paddle_a.shapesize(stretch_wid=5,stretch_len=1) # ovvero 20px x 5 = 100px
         self.paddle_a.penup()
         self.paddle_a.goto(-BOARD_WIDTH, 0)
 
@@ -146,8 +164,8 @@ class Main:
         self.ball.color("white")
         self.ball.penup()
         self.ball.goto(0, 0)
-        self.ball.dx = 0.1
-        self.ball.dy = 0.1
+        self.ball.dx = 0.5
+        self.ball.dy = 0.5
 
         # Keyboard bindings
         self.wn.listen()
@@ -165,6 +183,14 @@ class Main:
 
         self.turn_paddle_a_first : bool = True
 
+    def increase_ball_speed(self):
+        self.ball.dx = self.ball.dx * BALL_SPEED_INCREASE
+        self.ball.dy = self.ball.dy * BALL_SPEED_INCREASE
+
+    def reset_ball_speed(self):
+        self.ball.dx = 1
+        self.ball.dy = 1
+
     def run(self):
 
         # Main game loop        
@@ -174,6 +200,8 @@ class Main:
             # Move the ball
             self.ball.setx(self.ball.xcor() + self.ball.dx)
             self.ball.sety(self.ball.ycor() + self.ball.dy)
+
+            self.print_score()
 
             # Move the paddle
             if(self.turn_paddle_a_first):
@@ -185,35 +213,55 @@ class Main:
 
             self.turn_paddle_a_first = not self.turn_paddle_a_first
 
-            # Border checking --------------
+            # Border checking and collision --------------
 
             # Top
-            if self.ball.ycor() > 290:
-                self.ball.sety(290)
+            if self.ball.ycor() > BOARD_Y_UPPER_LIMIT:
+                self.ball.sety(BOARD_Y_UPPER_LIMIT)
                 self.ball.dy *= -1
             # Bottom
-            if self.ball.ycor() < -290:
-                self.ball.sety(-290)
+            if self.ball.ycor() < BOARD_Y_LOWER_LIMIT:
+                self.ball.sety(BOARD_Y_LOWER_LIMIT)
                 self.ball.dy *= -1
-            # Left 
+            # Left (Vince A)
             if self.ball.xcor() > BOARD_WIDTH:
                 self.score_a += 1
                 self.print_score()
+                self.reset_ball_speed()
                 self.ball.goto(0, 0)
                 self.ball.dx *= -1
-            # Right
+            # Right (Vince B)
             if self.ball.xcor() < -BOARD_WIDTH:
                 self.score_b += 1
                 self.print_score()
+                self.reset_ball_speed()
                 self.ball.goto(0, 0)
                 self.ball.dx *= -1
 
-            # Paddle and ball collisions
-            if self.ball.xcor() < -340 and self.ball.ycor() < self.paddle_a.ycor() + 50 and self.ball.ycor() > self.paddle_a.ycor() - 50:
-                self.ball.dx *= -1 
+            # Paddle and ball collisions ---------------
+
+            # (-350,+290) ----------------   (+350,+290)
+            #     | |                             | |
+            # (-350,0)          (0,0)          (+350,0) 
+            #     | |                             | |
+            # (-350,-290) ----------------   (+350,-290)
+
+            # Check for collision paddle A
+            if self.ball.xcor() < -340:
+                paddle_upper_limit_a = self.paddle_a.ycor() + 50
+                paddle_lower_limit_a = self.paddle_a.ycor() - 50
+                if self.ball.ycor() < paddle_upper_limit_a and self.ball.ycor() > paddle_lower_limit_a:
+                    self.ball.dx *= -1 
+                    self.increase_ball_speed()
             
-            elif self.ball.xcor() > 340 and self.ball.ycor() < self.paddle_b.ycor() + 50 and self.ball.ycor() > self.paddle_b.ycor() - 50:
-                self.ball.dx *= -1
+            # Check for collision paddle B            
+            if self.ball.xcor() > 340:
+                paddle_upper_limit_b = self.paddle_b.ycor() + 50
+                paddle_lower_limit_b = self.paddle_b.ycor() - 50
+                if self.ball.ycor() < paddle_upper_limit_b and self.ball.ycor() > paddle_lower_limit_b:
+                    self.ball.dx *= -1
+                    self.increase_ball_speed()
+
 
 # Classe per gestire le informazioni necessarie per muoversi
 class PlaygroundData:
@@ -250,9 +298,8 @@ class PaddleThread (Thread):
         self.callback_move_paddle = set_step_to_do_paddle
         self.game_info = game_info
         
-
+    # Qui sviluppare il movimento del paddle
     def run(self):
-
         i: int = 0
         while True:
             ball_x = self.game_info.get_ball_x()
@@ -270,7 +317,11 @@ class PaddleThread (Thread):
             else:
                 print("GO DOWN")
                 self.callback_move_paddle(-1)
+
             i = i + 1
 
-main: Main = Main()
-main.run()
+if __name__ == "__main__":
+    main: Main = Main()
+    main.run()
+
+
