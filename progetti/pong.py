@@ -42,7 +42,7 @@ class Paddle(Enum):
     A = 1
     B = 2
 
-#Gioco
+# Motore fisico del gioco
 class Main: 
     
     # Functions
@@ -76,6 +76,13 @@ class Main:
 
     def set_step_paddle_b(self,step_to_do):
         self.paddle_b_step_to_do = step_to_do
+
+    def get_step_to_do(self, paddle: Paddle):
+        if(paddle == Paddle.A):
+            return self.paddle_a_step_to_do
+        if(paddle == Paddle.B):
+            return self.paddle_b_step_to_do
+        raise Exception("Devi fornire un valore di paddle corretto") 
 
     def move_paddle_a(self):
         print("sono A -- GO : " + str(self.paddle_a_step_to_do))        
@@ -175,11 +182,14 @@ class Main:
         self.wn.onkeypress(self.paddle_b_down, "Down")
 
         # Step paddle
-        self.paddle_a_step_to_do = 0
-        self.paddle_b_step_to_do = 0
+        self.paddle_a_step_to_do: int = 0
+        self.paddle_b_step_to_do: int = 0
 
         thread_paddle_a = PaddleThread(Paddle.A, self.set_step_paddle_a, self.game_info)
         thread_paddle_a.start()
+
+        thread_paddle_b = PaddleThread(Paddle.B, self.set_step_paddle_b, self.game_info)
+        thread_paddle_b.start()
 
         self.turn_paddle_a_first : bool = True
 
@@ -262,18 +272,20 @@ class Main:
                     self.ball.dx *= -1
                     self.increase_ball_speed()
 
-
 # Classe per gestire le informazioni necessarie per muoversi
 class PlaygroundData:
 
     def __init__(self, game: Main):
-        self.game_info = game
+        self.game_info = game        
     
     def get_ball_y(self) -> float:
         return self.game_info.ball.ycor()
     
     def get_ball_x(self) -> float:
         return self.game_info.ball.xcor()
+        
+    def get_step_to_do(self,paddle:Paddle) -> int:
+        return self.game_info.get_step_to_do(paddle)
     
     def get_paddle_y(self,paddle:Paddle) -> float:
         if(paddle == Paddle.A):
@@ -290,6 +302,7 @@ class PlaygroundData:
         raise Exception("Devi fornire un valore di paddle corretto")
 
 # Classe dove apportare le modifiche
+# Muove il paddle
 class PaddleThread (Thread):
 
     def __init__(self, paddle_name: Paddle, set_step_to_do_paddle, game_info: PlaygroundData):
@@ -300,25 +313,24 @@ class PaddleThread (Thread):
         
     # Qui sviluppare il movimento del paddle
     def run(self):
-        i: int = 0
-        while True:
+         while True:
             ball_x = self.game_info.get_ball_x()
             ball_y = self.game_info.get_ball_y()
             paddle_x = self.game_info.get_paddle_x(self.paddle_name)
             paddle_y = self.game_info.get_paddle_y(self.paddle_name)
+            comand = self.game_info.get_step_to_do(self.paddle_name)
             print("Ball x=" + str(ball_x))
             print("Ball y=" + str(ball_y))
             print("Paddle" + str(self.paddle_name) + " x = " + str(paddle_x))
             print("Paddle" + str(self.paddle_name) + " y = " + str(paddle_y))
-
-            if (i % 2 == 0):
-                print("GO UP")
-                self.callback_move_paddle(1)
-            else:
-                print("GO DOWN")
-                self.callback_move_paddle(-1)
-
-            i = i + 1
+            print("Comand = " + str(comand))
+            if(comand == 0):
+                if(ball_y > paddle_y):                
+                    print("GO UP")
+                    self.callback_move_paddle(2)
+                else:
+                    print("GO DOWN")
+                    self.callback_move_paddle(-2)
 
 if __name__ == "__main__":
     main: Main = Main()
