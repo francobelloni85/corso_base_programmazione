@@ -224,8 +224,9 @@ class Main:
         self.turn_paddle_a_first : bool = True
 
     def increase_ball_speed(self):
-        self.ball.dx = self.ball.dx * BALL_SPEED_INCREASE
-        self.ball.dy = self.ball.dy * BALL_SPEED_INCREASE
+        if(abs(self.ball.dx) < 8):
+            self.ball.dx = self.ball.dx * BALL_SPEED_INCREASE
+            self.ball.dy = self.ball.dy * BALL_SPEED_INCREASE
 
     def reset_ball_speed(self):
         self.ball.dx = 1
@@ -366,12 +367,20 @@ class PaddleThread (Thread):
         
     # Qui sviluppare il movimento del paddle
     def run(self):
+        if(self.paddle_name == Paddle.A):
+            self.run_a()
+        else:
+            self.run_b()        
+        
+    # Qui sviluppare il movimento del paddle A 
+    def run_a(self):
          while True:
             ball_x = self.game_info.get_ball_x()
             ball_y = self.game_info.get_ball_y()
             paddle_x = self.game_info.get_paddle_x(self.paddle_name)
             paddle_y = self.game_info.get_paddle_y(self.paddle_name)
             comand = self.game_info.get_step_to_do(self.paddle_name)
+            print("Paddle =" + str(self.paddle_name))
             print("Ball x=" + str(ball_x))
             print("Ball y=" + str(ball_y))
             print("Paddle" + str(self.paddle_name) + " x = " + str(paddle_x))
@@ -380,10 +389,23 @@ class PaddleThread (Thread):
             if(comand == 0):
                 if(ball_y > paddle_y):                
                     print("GO UP")
-                    self.callback_move_paddle(2)
+                    self.callback_move_paddle(1)
                 else:
                     print("GO DOWN")
-                    self.callback_move_paddle(-2)
+                    self.callback_move_paddle(-1)
+            #time.sleep(0.01)
+    
+    # Qui sviluppare il movimento del paddle B
+    def run_b(self):
+        while True:            
+            ball_y = self.game_info.get_ball_y()            
+            paddle_y = self.game_info.get_paddle_y(self.paddle_name)
+            if(ball_y > paddle_y):                
+                print("GO UP")
+                self.callback_move_paddle(1)
+            else:
+                print("GO DOWN")
+                self.callback_move_paddle(-1)
 
 if __name__ == "__main__":
     main: Main = Main()
