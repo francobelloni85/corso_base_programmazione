@@ -38,6 +38,33 @@ BALL_SPEED_INCREASE : float = 1.5
 # Informazioni turtle
 # le figure di default sono 20px*20px
 
+class Point:
+    def __init__(self, x, y):
+        self.x: int = x
+        self.y: int = y
+
+class Helper:
+    @staticmethod
+    def bresenham(x1, y1, x2, y2):
+        dx = abs(x2 - x1)
+        dy = abs(y2 - y1)
+        sx = -1 if x1 > x2 else 1
+        sy = -1 if y1 > y2 else 1
+        err = dx - dy
+        points: list[Point] = []
+        while True:
+            points.append(Point(x1, y1))
+            if x1 == x2 and y1 == y2:
+                break
+            e2 = 2 * err
+            if e2 > -dy:
+                err -= dy
+                x1 += sx
+            if e2 < dx:
+                err += dx
+                y1 += sy
+        return points
+
 class Paddle(Enum):
     A = 1
     B = 2
@@ -171,8 +198,8 @@ class Main:
         self.ball.color("white")
         self.ball.penup()
         self.ball.goto(0, 0)
-        self.ball.dx = 0.5
-        self.ball.dy = 0.5
+        self.ball.dx = 1
+        self.ball.dy = 1
 
         # Keyboard bindings
         self.wn.listen()
@@ -207,13 +234,17 @@ class Main:
         while True:
             self.wn.update()
             
-            # Move the ball
-            self.ball.setx(self.ball.xcor() + self.ball.dx)
-            self.ball.sety(self.ball.ycor() + self.ball.dy)
+            # New ball position
+            new_x: int = int(self.ball.xcor() + self.ball.dx)
+            new_y: int = int(self.ball.ycor() + self.ball.dy)
 
-            self.print_score()
+            # all the points between the old location and the new one
+            all_points: list = Helper.bresenham(int(self.ball.xcor()),int(self.ball.ycor()),new_x,new_y)
+            
+            # Tolgo il primo punto (che è il punto di partenza)
+            points = all_points[1:]
 
-            # Move the paddle
+             # Move the paddle
             if(self.turn_paddle_a_first):
                 self.move_paddle_a()
                 self.move_paddle_b()
@@ -221,56 +252,70 @@ class Main:
                 self.move_paddle_b()
                 self.move_paddle_a()
 
+            self.print_score()
+
             self.turn_paddle_a_first = not self.turn_paddle_a_first
 
             # Border checking and collision --------------
 
-            # Top
-            if self.ball.ycor() > BOARD_Y_UPPER_LIMIT:
-                self.ball.sety(BOARD_Y_UPPER_LIMIT)
-                self.ball.dy *= -1
-            # Bottom
-            if self.ball.ycor() < BOARD_Y_LOWER_LIMIT:
-                self.ball.sety(BOARD_Y_LOWER_LIMIT)
-                self.ball.dy *= -1
-            # Left (Vince A)
-            if self.ball.xcor() > BOARD_WIDTH:
-                self.score_a += 1
-                self.print_score()
-                self.reset_ball_speed()
-                self.ball.goto(0, 0)
-                self.ball.dx *= -1
-            # Right (Vince B)
-            if self.ball.xcor() < -BOARD_WIDTH:
-                self.score_b += 1
-                self.print_score()
-                self.reset_ball_speed()
-                self.ball.goto(0, 0)
-                self.ball.dx *= -1
-
-            # Paddle and ball collisions ---------------
-
-            # (-350,+290) ----------------   (+350,+290)
-            #     | |                             | |
-            # (-350,0)          (0,0)          (+350,0) 
-            #     | |                             | |
-            # (-350,-290) ----------------   (+350,-290)
-
-            # Check for collision paddle A
-            if self.ball.xcor() < -340:
-                paddle_upper_limit_a = self.paddle_a.ycor() + 50
-                paddle_lower_limit_a = self.paddle_a.ycor() - 50
-                if self.ball.ycor() < paddle_upper_limit_a and self.ball.ycor() > paddle_lower_limit_a:
-                    self.ball.dx *= -1 
-                    self.increase_ball_speed()
+            new_position = None
             
-            # Check for collision paddle B            
-            if self.ball.xcor() > 340:
-                paddle_upper_limit_b = self.paddle_b.ycor() + 50
-                paddle_lower_limit_b = self.paddle_b.ycor() - 50
-                if self.ball.ycor() < paddle_upper_limit_b and self.ball.ycor() > paddle_lower_limit_b:
-                    self.ball.dx *= -1
-                    self.increase_ball_speed()
+            i: int = 0
+            for current_point in points:
+                    
+                    new_position = current_point
+
+                    # Top
+                    if current_point.y >= BOARD_Y_UPPER_LIMIT:
+                        current_point = all_points[i]
+                        self.ball.dy *= -1
+                        break
+
+                    # Bottom
+                    if current_point.y <= BOARD_Y_LOWER_LIMIT:
+                        current_point = all_points[i]
+                        self.ball.dy *= -1
+                        break
+                    
+                    # Check for collision paddle A
+                    if current_point.x <= -340:
+                        paddle_upper_limit_a = self.paddle_a.ycor() + 50
+                        paddle_lower_limit_a = self.paddle_a.ycor() - 50
+                        if current_point.y < paddle_upper_limit_a and current_point.y > paddle_lower_limit_a:
+                            current_point = all_points[i]
+                            self.ball.dx *= -1 
+                            self.increase_ball_speed()
+                        else:
+                            self.score_a += 1
+                            self.print_score()
+                            self.reset_ball_speed()
+                            self.ball.goto(0, 0)
+                            new_position = Point(0,0)
+                            self.ball.dx *= -1  
+                        break
+
+                    # Check for collision paddle B            
+                    if current_point.x >= 340:
+                        paddle_upper_limit_b = self.paddle_b.ycor() + 50
+                        paddle_lower_limit_b = self.paddle_b.ycor() - 50
+                        if current_point.y < paddle_upper_limit_b and current_point.y > paddle_lower_limit_b:
+                            current_point = all_points[i]
+                            self.ball.dx *= -1
+                            self.increase_ball_speed()
+                        else:
+                            self.score_b += 1
+                            self.print_score()
+                            self.reset_ball_speed()
+                            self.ball.goto(0, 0)
+                            new_position = Point(0,0)
+                            self.ball.dx *= -1
+                        break
+                    
+                    i = i + 1
+                    
+            # Move the ball
+            self.ball.setx(new_position.x)
+            self.ball.sety(new_position.y)
 
 # Classe per gestire le informazioni necessarie per muoversi
 class PlaygroundData:
