@@ -28,6 +28,9 @@ PADDLE_HALF_WIDTH: int = int(PADDLE_WIDTH/2)
 # Ad ogni colpo di quanto aumenta la velocita della pallina
 BALL_SPEED_INCREASE : float = 1.5
 
+# Di quanto di muove il paddle ad ogni comando
+PADDLE_MOVE: int = 10
+
 # (-350,+290) ----------------   (+350,+290)
 #     |                               |
 # (-350,0)          (0,0)          (+350,0) 
@@ -76,26 +79,26 @@ class Main:
 
     def paddle_a_up(self):
         y = self.paddle_a.ycor()
-        y += 20
-        if(y + PADDLE_HALF_WIDTH< BOARD_Y_UPPER_LIMIT):
+        y += PADDLE_MOVE
+        if(y + PADDLE_HALF_WIDTH <= BOARD_Y_UPPER_LIMIT):
             self.paddle_a.sety(y)
 
     def paddle_a_down(self):
         y = self.paddle_a.ycor()
-        y -= 20
-        if(y - PADDLE_HALF_WIDTH> BOARD_Y_LOWER_LIMIT):
+        y -= PADDLE_MOVE
+        if(y - PADDLE_HALF_WIDTH >= BOARD_Y_LOWER_LIMIT):
             self.paddle_a.sety(y)
 
     def paddle_b_up(self):
         y = self.paddle_b.ycor()
-        y += 20
-        if(y + PADDLE_HALF_WIDTH< BOARD_Y_UPPER_LIMIT):
+        y += PADDLE_MOVE
+        if(y + PADDLE_HALF_WIDTH <= BOARD_Y_UPPER_LIMIT):
             self.paddle_b.sety(y)
 
     def paddle_b_down(self):
         y = self.paddle_b.ycor()
-        y -= 20
-        if(y - PADDLE_HALF_WIDTH> BOARD_Y_LOWER_LIMIT):
+        y -= PADDLE_MOVE
+        if(y - PADDLE_HALF_WIDTH >= BOARD_Y_LOWER_LIMIT):
             self.paddle_b.sety(y)
 
     def set_step_paddle_a(self,step_to_do):
@@ -194,7 +197,7 @@ class Main:
         # Ball
         self.ball = turtle.Turtle()
         self.ball.speed(0)
-        self.ball.shape("square")
+        self.ball.shape("circle")
         self.ball.color("white")
         self.ball.penup()
         self.ball.goto(0, 0)
@@ -257,6 +260,11 @@ class Main:
             self.turn_paddle_a_first = not self.turn_paddle_a_first
 
             # Border checking and collision --------------
+
+            # Per ogni punto della traiettoria controllo se c'è
+            # la collisione con il bordo
+            # Se si mi porto nella posizione prima del contatto.
+            # Se no continuo                
 
             new_position = None
             
