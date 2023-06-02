@@ -4,7 +4,8 @@
 
 # TODO
 # uscire senza errore >  https://stackoverflow.com/questions/65643645/tkinter-tclerror-invalid-command-name-canvas
-# Lasciate dentro impostazioni fisse che non si adattano alla grandezza dello schermo
+# lasciate dentro impostazioni fisse che non si adattano alla grandezza dello schermo
+# se lontano dal bordo muovere la pallina senza calcolo traiettoria
 
 import time
 import turtle
