@@ -22,7 +22,7 @@ class GameConstants:
     WINDOWS_WIDTH: int = 800
 
     # board
-    BOARD_HEIGHT: int = int((WINDOWS_HEIGHT - 100)/2)  # 200
+    # BOARD_HEIGHT: int = int((WINDOWS_HEIGHT)/2)  # 200
     BOARD_WIDTH: int = int((WINDOWS_WIDTH - 100)/2)    # 350
 
     BOARD_Y_UPPER_LIMIT = 290
@@ -245,13 +245,14 @@ class GamePong:
         self.turn_paddle_a_first: bool = True
 
     def increase_ball_speed(self):
+        pass
         if (abs(self.ball.dx) < 8):
             self.ball.dx = self.ball.dx * GameConstants.BALL_SPEED_INCREASE
             self.ball.dy = self.ball.dy * GameConstants.BALL_SPEED_INCREASE
 
     def reset_ball_speed(self):
-        self.ball.dx = 1
-        self.ball.dy = 1
+        self.ball.dx = 3
+        self.ball.dy = 3
 
     def reset(self):        
         self.score = 0
@@ -321,13 +322,13 @@ class GamePong:
                 paddle_upper_limit_a = self.paddle_a.ycor() + 50
                 paddle_lower_limit_a = self.paddle_a.ycor() - 50
                 if current_point.y < paddle_upper_limit_a and current_point.y > paddle_lower_limit_a:
-                    reward = 10
+                    reward = 20
                     current_point = all_points[i]
                     self.ball.dx *= -1
                     self.increase_ball_speed()
                     self.score +=1
                 else:
-                    reward = -10
+                    reward = -30
                     is_game_over = True                     
                     self.score_a += 1
                     self.print_score()
@@ -357,17 +358,26 @@ class GamePong:
 
             i = i + 1
 
+        # Porto tutti i valori positivi        
+        ball_y = self.game_info.get_ball_y() + GameConstants.BOARD_Y_UPPER_LIMIT + GameConstants.PADDLE_HALF_WIDTH 
+        paddle_y = self.game_info.get_paddle_y(Paddle.A) + GameConstants.BOARD_Y_UPPER_LIMIT + GameConstants.PADDLE_HALF_WIDTH 
+        paddle_top = paddle_y + GameConstants.PADDLE_HALF_WIDTH 
+        paddle_bottom = paddle_y - GameConstants.PADDLE_HALF_WIDTH 
+        state_3: bool = paddle_bottom <= ball_y <= paddle_top
+        if(state_3):
+           reward = reward + 1
+
         # Move the ball
         self.ball.setx(new_position.x)
         self.ball.sety(new_position.y)
-
-        return is_game_over, reward, self.score
+                
+        return reward, is_game_over, self.score
 
     def run(self):
         game_score: int = 0
         # Main game loop
         while True:            
-            game_over, game_score = self.play_step()
+            reward, game_over, game_score = self.play_step()            
             if game_over == True:
                 break
         print('Final Score', game_score)

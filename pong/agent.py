@@ -19,6 +19,10 @@ MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
 LR = 0.001
 
+STATE_COL = 20
+STATE_ROW = 20
+STATE_PADDLE = 3
+
 class Agent:
 
     def __init__(self):
@@ -26,79 +30,79 @@ class Agent:
         self.epsilon = 0 # randomness
         self.gamma = 0.9 # discount rate
         self.memory = deque(maxlen=MAX_MEMORY) # popleft()
-        self.model = Linear_QNet(13, 256, 3)
+        n_state = STATE_COL + STATE_ROW + STATE_ROW + STATE_PADDLE
+        self.model = Linear_QNet(n_state, 512, 3)
         self.trainer = QTrainer(self.model, lr=LR, gamma=self.gamma)
 
      # IA
     def get_state(self, game: GamePong):
         
-        ball_near_border: int = 25
-
         data: PlaygroundData = game.game_info
 
-        ball_x = data.get_ball_x()
-        ball_y = data.get_ball_y()
-        paddle_x = data.get_paddle_x(Paddle.A)
+        ball_x = data.get_ball_x() 
+        ball_y = data.get_ball_y() 
+        # paddle_x = data.get_paddle_x(Paddle.A)
         paddle_y = data.get_paddle_y(Paddle.A)      
         paddle_top = paddle_y + GameConstants.PADDLE_HALF_WIDTH
         paddle_bottom = paddle_y - GameConstants.PADDLE_HALF_WIDTH
 
+        # Porto tutti i valori positivi
+        ball_x = ball_x + GameConstants.BOARD_WIDTH
+        ball_y = ball_y + GameConstants.BOARD_Y_UPPER_LIMIT
+        paddle_y = paddle_y + GameConstants.BOARD_Y_UPPER_LIMIT
+        paddle_top = paddle_top + GameConstants.BOARD_Y_UPPER_LIMIT
+        paddle_bottom = paddle_bottom + GameConstants.BOARD_Y_UPPER_LIMIT
+
+        if(paddle_y < 0 or ball_x < 0 or ball_y < 0 or paddle_top < 0 or paddle_bottom < 0): 
+            print("mmm")
+
         print("Ball x=" + str(ball_x))
         print("Ball y=" + str(ball_y))
-        print("Paddle x = " + str(paddle_x))
         print("Paddle y = " + str(paddle_y))
-        
-        # State
-        # 1: 0 > paddle è più vicino al bordo superiore 
-        #  : 1 > paddle è più vicino al bordo inferiore        
-        # 2: 1 > la pallina è vicina al bordo (entro 25px)
-        # 3: 1 > la pallina è al di sopra della dimensione del paddle 
-        # 4: 1 > la pallina è al di sotto della dimensione del paddle 
-        # 5: 1 > la pallina è dentro la dimensione del paddle 
-        # 6: 1 > la pallina è nel campo dell'avversario
-        # 7: 1 > la pallina è lontanta 300px
-        # 8: 1 > la pallina è lontanta 250px
-        # 9: 1 > la pallina è lontanta 200px
 
-        state_1: bool = paddle_y > 0        
-        state_2: bool = abs(GameConstants.BOARD_Y_UPPER_LIMIT) - abs(ball_y) < ball_near_border
-        state_3: bool = paddle_top < ball_y
-        state_4: bool = paddle_bottom > ball_y
-        state_5: bool = paddle_bottom < ball_y < paddle_top
-        state_6: bool = paddle_x> 0
-        
-        ball_x_abs: int = abs(ball_x)
+        state_1: bool = ball_y > paddle_top
+        state_2: bool = paddle_bottom > ball_y
+        state_3: bool = paddle_bottom <= ball_y <= paddle_top
 
-        state_7: bool = ball_x < 0  and abs(ball_x) > 300 
-        state_8: bool = ball_x < 0  and 250 < ball_x_abs < 300 
-        state_9: bool = ball_x < 0  and 200 < ball_x_abs < 250 
-        state_10: bool = ball_x < 0 and 150 < ball_x_abs < 200  
-        state_11: bool = ball_x < 0 and 100 < ball_x_abs < 150 
-        state_12: bool = ball_x < 0 and 50 < ball_x_abs < 100 
-        state_13: bool = ball_x < 0 and 25 < ball_x_abs < 50 
-
-        if(int(state_3) + int(state_4) + int(state_5) >1):
-            print("mmm")
-
-        if(int(state_7) + int(state_8) + int(state_9) >1):
-            print("mmm")
+        if(int(state_1) +int(state_2) +int(state_3) >1 ):
+            print("A")
 
         state = [
             state_1,            
             state_2,
             state_3,
-            state_4,
-            state_5,
-            state_6,
-            state_7,
-            state_8,
-            state_9,
-            state_10,
-            state_11,
-            state_12,
-            state_13
-            ]
+            ]        
         
+        n_col = int(700 / STATE_COL)
+        n_row = int(580 / STATE_ROW)
+
+        t1 = int(ball_x / n_col)
+        for i in range(STATE_COL):
+            if(t1 != i):
+                state.append(False)
+            else:
+                state.append(True)
+                print("t1: ",t1)
+
+        t2 = int(ball_y / n_row)
+        i = 0
+        for i in range(STATE_ROW):
+             if(t2 != i):
+                state.append(False)
+             else:
+                state.append(True)
+                print("t2: ",t2)
+        
+        t3 = int(paddle_y / n_row)
+        i = 0
+        for i in range(STATE_ROW):
+             if(t3 != i):
+                state.append(False)
+             else:
+                state.append(True)
+                print("t3: ",t3)
+
+        print(t1,t2,t3)
         print(state)
 
         return np.array(state, dtype=int)
